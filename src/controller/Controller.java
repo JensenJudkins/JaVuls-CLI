@@ -1,12 +1,20 @@
 package controller;
 
 import navigation.*;
+import applications.*;
+import java.util.Scanner;
 
 public class Controller {
 	
 	public void start(){
-		Banner.createBanner();
+		createCLI();
 		
+		
+	}
+	public void createCLI()
+	{
+		Banner.createBanner();
+		MainMenu.mainMenuList();
 	}
 
 }
