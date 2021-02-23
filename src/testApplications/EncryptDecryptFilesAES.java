@@ -16,7 +16,7 @@ public class EncryptDecryptFilesAES {
 
  public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException,
    IllegalBlockSizeException, BadPaddingException, IOException {
-  var key = "jackrutorial.com";
+  String key = "jackrutorial.com";
  
   System.out.println("File input: " + "D:\\text.txt");
 
@@ -30,19 +30,19 @@ public class EncryptDecryptFilesAES {
  public static void encryptedFile(String secretKey, String fileInputPath, String fileOutPath)
    throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
    IllegalBlockSizeException, BadPaddingException {
-  var key = new SecretKeySpec(secretKey.getBytes(), "AES");
-  var cipher = Cipher.getInstance("AES");
+  SecretKeySpec key = new SecretKeySpec(secretKey.getBytes(), "AES");
+  Cipher cipher = Cipher.getInstance("AES");
   cipher.init(Cipher.ENCRYPT_MODE, key);
 
-  var fileInput = new File(fileInputPath);
-  var inputStream = new FileInputStream(fileInput);
-  var inputBytes = new byte[(int) fileInput.length()];
+  File fileInput = new File(fileInputPath);
+  FileInputStream inputStream = new FileInputStream(fileInput);
+  byte[] inputBytes = new byte[(int) fileInput.length()];
   inputStream.read(inputBytes);
 
-  var outputBytes = cipher.doFinal(inputBytes);
+  byte[] outputBytes = cipher.doFinal(inputBytes);
 
-  var fileEncryptOut = new File(fileOutPath);
-  var outputStream = new FileOutputStream(fileEncryptOut);
+  File fileEncryptOut = new File(fileOutPath);
+  FileOutputStream outputStream = new FileOutputStream(fileEncryptOut);
   outputStream.write(outputBytes);
 
   inputStream.close();
@@ -55,19 +55,19 @@ public class EncryptDecryptFilesAES {
  public static void decryptedFile(String secretKey, String fileInputPath, String fileOutPath)
    throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
    IllegalBlockSizeException, BadPaddingException {
-  var key = new SecretKeySpec(secretKey.getBytes(), "AES");
-  var cipher = Cipher.getInstance("AES");
+  SecretKeySpec key = new SecretKeySpec(secretKey.getBytes(), "AES");
+  Cipher cipher = Cipher.getInstance("AES");
   cipher.init(Cipher.DECRYPT_MODE, key);
 
-  var fileInput = new File(fileInputPath);
-  var inputStream = new FileInputStream(fileInput);
-  var inputBytes = new byte[(int) fileInput.length()];
+  File fileInput = new File(fileInputPath);
+  FileInputStream inputStream = new FileInputStream(fileInput);
+  byte[] inputBytes = new byte[(int) fileInput.length()];
   inputStream.read(inputBytes);
 
   byte[] outputBytes = cipher.doFinal(inputBytes);
 
-  var fileEncryptOut = new File(fileOutPath);
-  var outputStream = new FileOutputStream(fileEncryptOut);
+  File fileEncryptOut = new File(fileOutPath);
+  FileOutputStream outputStream = new FileOutputStream(fileEncryptOut);
   outputStream.write(outputBytes);
 
   inputStream.close();
