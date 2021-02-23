@@ -1,10 +1,7 @@
 package controller;
 
 import navigation.*;
-import testApplications.*;
 import java.util.Scanner;
-import readyForImplementation.*;
-import testApplications.*;
 import java.lang.Integer;
 
 public class Controller {
@@ -22,11 +19,19 @@ public class Controller {
 	public void runApplication(){
 		Scanner inputScanner = new Scanner(System.in);
 		String input = inputScanner.nextLine();
-		var x = Integer.parseInt(input);
+		int x = Integer.parseInt(input);
 		if( x == 1)
 		{
-			Banner.createBanner();
+			Thread bustEm = new Thread(new Runnable() {
+				public void run() {
+					Banner.createBanner();;
+				}
+			});
 		}
 	}
+
+
+
+
 
 }
