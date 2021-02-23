@@ -1,10 +1,10 @@
-package testFiles;
+package testtestApplications;
 
 import java.io.*;
 import java.awt.GraphicsEnvironment;
 import java.net.URISyntaxException;
 
-import applications.WindowsCommandLineIPandPing;
+import testApplications.WindowsCommandLineIPandPing;
 public class OpenCommandPrompt{
     public static void main (String [] args) throws IOException, InterruptedException, URISyntaxException{
         Console console = System.console();

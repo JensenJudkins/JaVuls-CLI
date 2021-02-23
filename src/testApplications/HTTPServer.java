@@ -1,5 +1,5 @@
 /*
- *  Copyright © 2005-2019 Amichai Rothman
+ *  Copyright ï¿½ 2005-2019 Amichai Rothman
  *
  *  This file is part of JLHTTP - the Java Lightweight HTTP Server.
  *
@@ -19,7 +19,7 @@
  *  For additional info see http://www.freeutils.net/source/jlhttp/
  */
 
-package applications;
+package testApplications;
 
 import java.io.*;
 import java.lang.annotation.*;

@@ -1,4 +1,4 @@
-package applications;
+package testApplications;
 // Java Program to Ping an IP address 
 import java.io.*; 
 import java.net.*; 

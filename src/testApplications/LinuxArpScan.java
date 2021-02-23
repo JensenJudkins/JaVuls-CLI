@@ -1,9 +1,9 @@
-package testFiles;
+package testtestApplications;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import applications.ShowProperties;
+import testApplications.ShowProperties;
 
 public class LinuxArpScan {
 	

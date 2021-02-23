@@ -1,7 +1,7 @@
 package controller;
 
 import navigation.*;
-import applications.*;
+import testApplications.*;
 import java.util.Scanner;
 
 public class Controller {

@@ -1,4 +1,4 @@
-package testFiles;
+package testtestApplications;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,7 +14,7 @@ public class ExecutorServiceApp {
 	public static void main(String[] args)
 	{
 		ExecutorService ex = Executors.newFixedThreadPool(10);
-		String ip;
+		
 		
 		
 		Runnable task1 = new Runnable() {

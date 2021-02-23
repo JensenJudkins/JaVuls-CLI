@@ -1,4 +1,4 @@
-package testFiles;
+package testtestApplications;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import applications.*;
+import testApplications.*;
 import controller.AddABreak;
 
 public class Tests 
