@@ -1,4 +1,4 @@
-package testApplications;
+package applications;
 
 public class TestApplication {
     

