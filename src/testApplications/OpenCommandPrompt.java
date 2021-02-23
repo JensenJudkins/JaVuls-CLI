@@ -1,4 +1,4 @@
-package testtestApplications;
+package testApplications;
 
 import java.io.*;
 import java.awt.GraphicsEnvironment;

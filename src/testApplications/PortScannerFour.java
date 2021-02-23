@@ -1,4 +1,4 @@
-package testtestApplications;
+package testApplications;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import view.JFX;
+
 
 public class PortScannerFour
 {

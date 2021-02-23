@@ -1,4 +1,4 @@
-package testtestApplications;
+package testApplications;
 
 import java.io.IOException;
 import java.net.InetAddress;

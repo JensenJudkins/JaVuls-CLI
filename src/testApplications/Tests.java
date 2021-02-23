@@ -1,4 +1,4 @@
-package testtestApplications;
+package testApplications;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import testApplications.*;
-import controller.AddABreak;
+
 
 public class Tests 
 {
