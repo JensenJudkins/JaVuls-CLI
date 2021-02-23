@@ -22,12 +22,12 @@ public class Controller {
 		int x = Integer.parseInt(input);
 		if( x == 1)
 		{
-			Thread bustEm = new Thread(new Runnable() {
-				public void run() {
+		
 					Banner.createBanner();;
-				}
-			});
+		
 		}
+		
+	
 	}
 
 
