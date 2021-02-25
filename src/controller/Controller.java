@@ -2,7 +2,12 @@ package controller;
 
 import navigation.*;
 import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import apps.*;
+
 import java.lang.Integer;
+import java.net.UnknownHostException;
 
 public class Controller {
 	
@@ -11,10 +16,14 @@ public class Controller {
 		runApplication();
 		
 	}
+	public void restart() {
+		MainMenu.mainMenuList();
+		runApplication();
+	}
 	public void createCLI()
 	{
-		Banner.createBanner();
-		MainMenu.mainMenuList();
+		
+		MainMenu.freshStartMenu();
 	}
 	public void runApplication(){
 		Scanner inputScanner = new Scanner(System.in);
@@ -22,13 +31,17 @@ public class Controller {
 		int x = Integer.parseInt(input);
 		if( x == 1)
 		{
-		
-					Banner.createBanner();;
-		
+			try {
+				PublicIPLookupHost.main(null);
+				restart();
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				restart();
+			}
 		}
-		
-	
 	}
+	
 
 
 

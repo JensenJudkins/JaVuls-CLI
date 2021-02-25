@@ -1,4 +1,4 @@
-package readyForImplementation;
+package apps;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
