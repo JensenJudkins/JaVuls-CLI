@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
     public class PortScanner {
 
+    /*
     public static void main(final String... args) throws InterruptedException, ExecutionException 
     {
         final ExecutorService es = Executors.newCachedThreadPool();
@@ -39,6 +40,7 @@ import java.util.ArrayList;
         System.out.println("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
         + timeout + "ms)");
     }
+    */
     
     public static String localPortScan(String threads) throws UnknownHostException, InterruptedException, ExecutionException
     {
@@ -46,7 +48,7 @@ import java.util.ArrayList;
     	
     	if(threadsAllowed==0)
     	{
-    	final ExecutorService es = Executors.newCachedThreadPool();
+    	final ExecutorService es = Executors.newFixedThreadPool(2800);
     	String ip = YourIPLookup.viewMyIP();
         final int timeout = 200;
         final List<Future<ScanResult>> futures = new ArrayList<>();
@@ -79,6 +81,7 @@ import java.util.ArrayList;
         
     	
         es.shutdown();
+        es.shutdownNow();
         return openPortsOnLocal;
     	}
     	else
@@ -116,6 +119,7 @@ import java.util.ArrayList;
             
         	
             es.shutdown();
+            es.shutdownNow();
             return openPortsOnLocal;
             
     	}
@@ -134,7 +138,7 @@ import java.util.ArrayList;
     	
     	if(threadsAllowed == 0)
     	{
-    	final ExecutorService es = Executors.newCachedThreadPool();
+    	final ExecutorService es = Executors.newFixedThreadPool(2800);
     	String ip = ipOfSearch;
         final int timeout = 200;
         final List<Future<ScanResult>> futures = new ArrayList<>();
@@ -172,6 +176,7 @@ import java.util.ArrayList;
         
        
         es.shutdown();
+        es.shutdownNow();
         return openPortsOnLocal;
     	}
     	else
@@ -214,6 +219,7 @@ import java.util.ArrayList;
             
            
             es.shutdown();
+            es.shutdownNow();
             return openPortsOnLocal;
             
     	}

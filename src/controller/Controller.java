@@ -22,6 +22,7 @@ public class Controller {
 	public void restart() {
 		MainMenu.mainMenuList();
 		runApplication();
+		System.gc();
 	}
 	public void createCLI()
 	{
