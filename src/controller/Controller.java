@@ -1,7 +1,6 @@
 package controller;
 
 import navigation.*;
-import readyForImplementation.PortScanner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +23,11 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class Controller {
+	Scanner inputScanner = new Scanner(System.in);
 	
 	public void start(){
 		createCLI();
 		runApplication();
-		
 	}
 	public void restart() {
 		MainMenu.mainMenuList();
@@ -37,11 +36,10 @@ public class Controller {
 	}
 	public void createCLI()
 	{
-		
 		MainMenu.freshStartMenu();
 	}
 	public void runApplication(){
-		Scanner inputScanner = new Scanner(System.in);
+		
 		String input = inputScanner.nextLine();
 		int x = Integer.parseInt(input);
 		
@@ -53,41 +51,50 @@ public class Controller {
 		//public ip lookup
 		if( x == 1)
 		{
-			try {
-				PublicIPLookupHost.main(null);
-				restart();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				restart();
-			}
+			PublicIPLookup();
 		}
 		//Port Scanner
 		if(x ==2) {
-			System.out.println("Input the IP you wish to scan (deafult is local host 127.0.0.1): ");
-			String ip = inputScanner.nextLine();
-			System.out.println("Input number of threads for port scan (default is 0 which is the fastest): ");
-			String threads = inputScanner.nextLine();
-			if(threads.equals(""))
-			{
-				threads = "0";
-			}
-			
-			if(ip.equals("")) {
-				try {
-					System.out.println("Scanning local host 127.0.0.1 with " + threads+ " threads");
-					PortScanner.localPortScan(threads);
-					restart();
-				} catch (UnknownHostException | InterruptedException | ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					restart();
-				}
-			}
-			
+			PortScanner();
+		}
+		//AES Encrypt
+		if(x == 3){
+			AESEncrypt();
+		}
+		//AES Decrypt
+		if(x == 4){
+			AESDecrypt();
+		}
+		//MD5 Brute Force
+		if(x == 5)
+		{
+			MD5BruteForce();
+		}
+	}
+	public void PublicIPLookup() {
+		try {
+			PublicIPLookupHost.main(null);
+			restart();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			restart();
+		}
+	}
+	public void PortScanner() {
+		System.out.println("Input the IP you wish to scan (deafult is local host 127.0.0.1): ");
+		String ip = inputScanner.nextLine();
+		System.out.println("Input number of threads for port scan (default is 0 which is the fastest): ");
+		String threads = inputScanner.nextLine();
+		if(threads.equals(""))
+		{
+			threads = "0";
+		}
+		
+		if(ip.equals("")) {
 			try {
-				System.out.println("Scanning "+ip+" with " + threads+ " threads");
-				PortScanner.foreignPortScan(ip, threads);
+				System.out.println("Scanning local host 127.0.0.1 with " + threads+ " threads");
+				PortScanner.localPortScan(threads);
 				restart();
 			} catch (UnknownHostException | InterruptedException | ExecutionException e) {
 				// TODO Auto-generated catch block
@@ -95,141 +102,143 @@ public class Controller {
 				restart();
 			}
 		}
-		//AES Encrypt
-		if(x == 3){
-			//Grab all input from user
-			System.out.println("Drag and drop the file that you would like to encrypt (path to file)");
-			String fileIn = inputScanner.nextLine();
-			if(fileIn.equals(""))
-			{
-				System.out.println("You must input a file");	
-			}
-			System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
-			String passphrase = inputScanner.nextLine();
-			System.out.println("Add file out path for encrypted file (default is same location with .enc extension");
-			String fileOut = FilenameUtils.removeExtension(inputScanner.nextLine());
-			
-			//run tests against inputs
-			if(passphrase.equals(""))
-			{
-				System.out.println("Using default passphrase (javulsisthebestthingever)");
-				passphrase = "javulsisthebestthingever";
-			}
-			if(fileOut.equals(""))
-			{
-				System.out.println("Using default path out with .enc extension");	
-				fileOut = fileIn + ".enc";
-			}
-			
-			//execute
-			try {
-				EncryptDecryptFilesAES.encryptedFile(passphrase, fileIn, fileOut);
-				System.out.println("Encryption executed successfully :)");
-				restart();
-			} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
-					| BadPaddingException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				System.out.println("Encryption failed, this is so sad");
-				restart();
-			}
-			
-		}
-		//AES Decrypt
-		if(x == 4){
-			//Grab all input from user
-			System.out.println("Drag and drop the file that you would like to decrypt (path to file)");
-			String fileIn = inputScanner.nextLine();
-			if(fileIn.equals(""))
-			{
-				System.out.println("You must input a file");	
-			}
-			System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
-			String passphrase = inputScanner.nextLine();
-			System.out.println("Add file out path for decrypted file (default is same location with .txt extension");
-			String fileOut = FilenameUtils.removeExtension(inputScanner.nextLine());
-			
-			//run tests against inputs
-			if(passphrase.equals(""))
-			{
-				System.out.println("Using default passphrase (javulsisthebestthingever)");
-				passphrase = "javulsisthebestthingever";
-			}
-			if(fileOut.equals(""))
-			{
-				System.out.println("Using default path out with .txt extension");	
-				fileOut = fileIn + ".txt";
-			}
-			
-			//execute
-			try {
-				EncryptDecryptFilesAES.decryptedFile(passphrase, fileIn, fileOut);
-				System.out.println("Decryption executed successfully :)");
-				restart();
-			} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
-					| BadPaddingException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				System.out.println("Decryption failed, this is so sad");
-				restart();
-			}
-			
-		}
 		
-		//MD5 Brute Force
-		if(x == 5)
+		try {
+			System.out.println("Scanning "+ip+" with " + threads+ " threads");
+			PortScanner.foreignPortScan(ip, threads);
+			restart();
+		} catch (UnknownHostException | InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			restart();
+		}
+	}
+	public void AESEncrypt() {
+		//Grab all input from user
+		System.out.println("Path to file you would like to encrypt");
+		String fileIn = inputScanner.nextLine();
+		if(fileIn.equals(""))
 		{
-			//System.out.println("Are there multiple hashes to crack? (y/n)");
-			//String moreHashes = inputScanner.nextLine();
-			//if(moreHashes.equals("y"))
-			//{
-				List<String> listOfHashes = new ArrayList<String>();
-				System.out.println("Please input the number of hashes that you wish to crack");
-				String numOfHashes = inputScanner.nextLine();
-				int numohash = Integer.parseInt(numOfHashes);
-				for(int h = 0; numohash > h; h++)
-				{
-					
-					System.out.println("Input the MD5 Hash");
-					String hash = inputScanner.nextLine();
-					listOfHashes.add(hash);
-				}
-				System.out.println("Allow to run in background?(y/n)");
-				String background = inputScanner.nextLine();
-				if(background.equals("y"))
-				{
-					System.out.println("This feature will be added in the future... sorry");
-					System.out.println("Starting in non-background mode");
-					System.out.println("Cracking " + listOfHashes.size() + "Hashes");
-					MD5BruteCrack.main(listOfHashes.toArray(new String[listOfHashes.size()]));
-					restart();
-				}
-				else
-				{
-					System.out.println("Cracking " + listOfHashes.size() + "Hashes");
-					MD5BruteCrack.main(listOfHashes.toArray(new String[listOfHashes.size()]));
-					restart();
-				}
-				
-			//}
-			//else {
-			//	System.out.println("Input the MD5 Hash");
-			//	String hash = inputScanner.nextLine();
-			//	System.out.println("Allow to run in background?(y/n)");
-			//	String background = inputScanner.nextLine();
-			//	if(background.equals("y"))
-			//	{
-			//		System.out.println("This feature will be added in the future... sorry");
-			//		System.out.println("Starting in non-background mode");
-			//	}
-			//	else
-			//	{
-			//		MD5BruteCrack.main(hash);
-			//	}
-			//}	
+			System.out.println("You must input a file");	
+		}
+		System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
+		String passphrase = inputScanner.nextLine();
+		System.out.println("Add file out path for encrypted file (default is same location with .enc extension");
+		String fileOut = FilenameUtils.removeExtension(inputScanner.nextLine());
+		
+		//run tests against inputs
+		if(passphrase.equals(""))
+		{
+			System.out.println("Using default passphrase (javulsisthebestthingever)");
+			passphrase = "javulsisthebestthingever";
+		}
+		if(fileOut.equals(""))
+		{
+			System.out.println("Using default path out with .enc extension");	
+			fileOut = FilenameUtils.removeExtension(fileIn) + ".enc";
 		}
 		
+		//execute
+		try {
+			EncryptDecryptFilesAES.encryptedFile(passphrase, fileIn, fileOut);
+			System.out.println("Encryption executed successfully :)");
+			restart();
+		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
+				| BadPaddingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Encryption failed, this is so sad");
+			restart();
+		}
+	}
+	public void AESDecrypt(){
+		//Grab all input from user
+		System.out.println("Drag and drop the file that you would like to decrypt (path to file)");
+		String fileIn = inputScanner.nextLine();
+		if(fileIn.equals(""))
+		{
+			System.out.println("You must input a file");	
+		}
+		System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
+		String passphrase = inputScanner.nextLine();
+		System.out.println("Add file out path for decrypted file (default is same location with .txt extension");
+		String fileOut = FilenameUtils.removeExtension(inputScanner.nextLine());
 		
+		//run tests against inputs
+		if(passphrase.equals(""))
+		{
+			System.out.println("Using default passphrase (javulsisthebestthingever)");
+			passphrase = "javulsisthebestthingever";
+		}
+		if(fileOut.equals(""))
+		{
+			System.out.println("Using default path out with .txt extension");	
+			fileOut = fileIn + ".txt";
+		}
+		
+		//execute
+		try {
+			EncryptDecryptFilesAES.decryptedFile(passphrase, fileIn, fileOut);
+			System.out.println("Decryption executed successfully :)");
+			restart();
+		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
+				| BadPaddingException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Decryption failed, this is so sad");
+			restart();
+		}
+		
+	}
+	public void MD5BruteForce() {
+		//System.out.println("Are there multiple hashes to crack? (y/n)");
+		//String moreHashes = inputScanner.nextLine();
+		//if(moreHashes.equals("y"))
+		//{
+			List<String> listOfHashes = new ArrayList<String>();
+			System.out.println("Please input the number of hashes that you wish to crack");
+			String numOfHashes = inputScanner.nextLine();
+			int numohash = Integer.parseInt(numOfHashes);
+			for(int h = 0; numohash > h; h++)
+			{
+				
+				System.out.println("Input the MD5 Hash");
+				String hash = inputScanner.nextLine();
+				listOfHashes.add(hash);
+			}
+			System.out.println("Allow to run in background?(y/n)");
+			String background = inputScanner.nextLine();
+			if(background.equals("y"))
+			{
+				System.out.println("This feature will be added in the future... sorry");
+				System.out.println("Starting in non-background mode");
+				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
+				MD5BruteCrack.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+				restart();
+			}
+			else
+			{
+				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
+				MD5BruteCrack.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+				restart();
+			}
+			
+		//}
+		//else {
+		//	System.out.println("Input the MD5 Hash");
+		//	String hash = inputScanner.nextLine();
+		//	System.out.println("Allow to run in background?(y/n)");
+		//	String background = inputScanner.nextLine();
+		//	if(background.equals("y"))
+		//	{
+		//		System.out.println("This feature will be added in the future... sorry");
+		//		System.out.println("Starting in non-background mode");
+		//	}
+		//	else
+		//	{
+		//		MD5BruteCrack.main(hash);
+		//	}
+		//}	
 	}
 	
 
