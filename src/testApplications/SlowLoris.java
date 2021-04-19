@@ -8,28 +8,30 @@ public class SlowLoris
 	
 	public static void slowLorisRun(String target, String port, String threads, String time)
 	{
-		int portNum = Integer.parseInt(port);
-		int threadNum = Integer.parseInt(threads);
-		int timeNum = Integer.parseInt(time);
-		if(target.equals(null))
+		if(target.equals(""))
 		{
 			System.out.println("You must input a target silly");
 		}
-		if(portNum == 0)
+		if(port.equals(""))
 		{
 			System.out.println("No port input, using default 80");
-			portNum = 80;
+			port = "80";
 		}
-		if(threadNum == 0)
+		if(threads.equals(""))
 		{
 			System.out.println("No number of threads specified, using 20000");
-			threadNum = 20000;
+			threads = "20000";
 		}
-		if(timeNum == 0)
+		if(time.equals(""))
 		{
 			System.out.println("No time specified, using maximum");
-			timeNum = 2147483647;
+			time = "2147483647";
 		}
+		int portNum = Integer.parseInt(port);
+		int threadNum = Integer.parseInt(threads);
+		int timeNum = Integer.parseInt(time);
+		
+		
 		
 		 for(int i = 0; i < threadNum; i++)
 	        {
@@ -42,6 +44,7 @@ public class SlowLoris
 	            {
 	                die(mue.getMessage()); // fatal error
 	            }
+	            
 	        }
 		
 	}

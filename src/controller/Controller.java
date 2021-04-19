@@ -70,6 +70,10 @@ public class Controller {
 		{
 			MD5BruteForce();
 		}
+		if(x == 6)
+		{
+			SlowLoris();
+		}
 	}
 	public void PublicIPLookup() {
 		try {
@@ -117,9 +121,10 @@ public class Controller {
 		//Grab all input from user
 		System.out.println("Path to file you would like to encrypt");
 		String fileIn = inputScanner.nextLine();
-		if(fileIn.equals(""))
+		while(fileIn.equals(""))
 		{
 			System.out.println("You must input a file");	
+			fileIn = inputScanner.nextLine();
 		}
 		System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
 		String passphrase = inputScanner.nextLine();
@@ -157,7 +162,8 @@ public class Controller {
 		String fileIn = inputScanner.nextLine();
 		if(fileIn.equals(""))
 		{
-			System.out.println("You must input a file");	
+			System.out.println("You must input a file");
+			fileIn = inputScanner.nextLine();
 		}
 		System.out.println("Input the passphrase for the encryption (MUST BE 24 CHARACTERS LONG, Default is javulsisthebestthingever)");
 		String passphrase = inputScanner.nextLine();
@@ -240,7 +246,24 @@ public class Controller {
 		//	}
 		//}	
 	}
-	
+	public void SlowLoris() {
+		System.out.println("Please input the website/host");
+		String host = inputScanner.nextLine();
+		while(host.equals(""))
+		{
+			System.out.println("You must input a website, host, or IP");	
+			host = inputScanner.nextLine();
+		}
+		System.out.println("Input the port Number (default is 80)");
+		String port = inputScanner.nextLine();
+		System.out.println("Please input the number of threads you wish to use (defaut is 20000)");
+		String threads = inputScanner.nextLine();
+		System.out.println("Amount of time (in minutes, default is maximum [2147483647 min])");
+		String time = inputScanner.nextLine();
+				
+		testApplications.SlowLoris.slowLorisRun(host, port, threads, time);
+		restart();
+	}
 
 
 
