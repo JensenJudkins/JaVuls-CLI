@@ -1,6 +1,8 @@
-package testApplications;
+package apps;
 
 import java.net.MalformedURLException;
+
+import testApplications.Connector;
 
 
 public class SlowLoris

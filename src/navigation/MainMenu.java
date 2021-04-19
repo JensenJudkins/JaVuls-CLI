@@ -18,7 +18,7 @@ public class MainMenu {
     	System.out.println("4) Decrypt AES file");
     	System.out.println("5) MD5 Brute Force Crack");
     	System.out.println("6) Slow Loris Attack");
-    	
+    	System.out.println("7) HTTP Server");
     	
     	
     	

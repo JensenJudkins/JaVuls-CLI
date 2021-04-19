@@ -74,6 +74,10 @@ public class Controller {
 		{
 			SlowLoris();
 		}
+		if(x == 7)
+		{
+			HTTPServer();
+		}
 	}
 	public void PublicIPLookup() {
 		try {
@@ -261,10 +265,32 @@ public class Controller {
 		System.out.println("Amount of time (in minutes, default is maximum [2147483647 min])");
 		String time = inputScanner.nextLine();
 				
-		testApplications.SlowLoris.slowLorisRun(host, port, threads, time);
+		apps.SlowLoris.slowLorisRun(host, port, threads, time);
 		restart();
 	}
-
+	public void HTTPServer() {
+		System.out.println("Wouldyou like to run this in the background? (y/n)");
+		String bg = inputScanner.nextLine();
+		if(bg.equals("y"))
+		{
+			System.out.println("This feature will be added in the future... sorry");
+			System.out.println("Please input the root directory of the HTTP server");
+			String dir = inputScanner.nextLine();
+			System.out.println("Please input the port number to listen on");
+			String port = inputScanner.nextLine();
+			System.out.println("Starting server");
+			apps.HTTPServer.startServerUpInGUI(dir, port);
+		}
+		else {
+			System.out.println("Please input the root directory of the HTTP server");
+			String dir = inputScanner.nextLine();
+			System.out.println("Please input the port number to listen on");
+			String port = inputScanner.nextLine();
+			System.out.println("Starting server");
+			apps.HTTPServer.startServerUpInGUI(dir, port);
+		}
+		
+	}
 
 
 

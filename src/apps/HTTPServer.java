@@ -19,7 +19,7 @@
  *  For additional info see http://www.freeutils.net/source/jlhttp/
  */
 
-package testApplications;
+package apps;
 
 import java.io.*;
 import java.lang.annotation.*;
