@@ -1,4 +1,4 @@
-package testApplications;
+package apps;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,7 +26,7 @@ public class EncryptDecryptFilesAES {
   //decryptedFile
   decryptedFile(key, "D:\\text.enc", "D:\\text-decrypt.txt");
  }
-
+//Encrypt Files
  public static void encryptedFile(String secretKey, String fileInputPath, String fileOutPath)
    throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
    IllegalBlockSizeException, BadPaddingException {
@@ -51,7 +51,7 @@ public class EncryptDecryptFilesAES {
   System.out.println("File successfully encrypted!");
   System.out.println("New File: " + fileOutPath);
  }
-
+//Decrypt Files
  public static void decryptedFile(String secretKey, String fileInputPath, String fileOutPath)
    throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IOException,
    IllegalBlockSizeException, BadPaddingException {

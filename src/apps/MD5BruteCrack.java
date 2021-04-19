@@ -1,10 +1,10 @@
-package readyForImplementation;
+package apps;
 
 import java.security.MessageDigest;
 
 import javax.swing.JOptionPane;
 
-public class BruteCrack
+public class MD5BruteCrack
 {
 	MessageDigest md;
 	
@@ -16,7 +16,7 @@ public class BruteCrack
 	int max_num_chars;
 
 	
-	public BruteCrack() throws Exception
+	public MD5BruteCrack() throws Exception
 	{
 		min_char_value = 32;
 		max_char_value = 126;
@@ -101,7 +101,7 @@ public class BruteCrack
 	{
 		try
 		{
-			BruteCrack bc = new BruteCrack();
+			MD5BruteCrack bc = new MD5BruteCrack();
 			long start;
 			long end;
 			String answer;
@@ -136,23 +136,30 @@ public class BruteCrack
 	{
 		if(args.length > 0)
 		{
-			try
+			for(int h = 0; args.length > h; h++)
 			{
-				BruteCrack bc = new BruteCrack();
-				long start;
-				long end;
-				String answer;
-			
-				start = System.nanoTime();
-				answer = bc.crack(args[0]);
-				end = System.nanoTime();
-			
-				System.out.println("Answer: " + answer);
-				System.out.println("Processing Time: " + ((end - start)/1000000000));
-			}
-			catch(Exception e)
-			{
-				System.out.println("Exception: " + e.toString());
+				try
+				{
+					if(args[h].equals("")) {
+						System.out.println("Argument "+ h + " is blank, skipping");
+						h++;
+					}
+					MD5BruteCrack bc = new MD5BruteCrack();
+					long start;
+					long end;
+					String answer;
+				
+					start = System.nanoTime();
+					answer = bc.crack(args[h]);
+					end = System.nanoTime();
+				
+					System.out.println("Answer: " + answer);
+					System.out.println("Processing Time: " + ((end - start)/1000000000));
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exception: " + e.toString());
+				}
 			}
 		}
 	}
