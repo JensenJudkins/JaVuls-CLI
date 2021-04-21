@@ -209,6 +209,7 @@ public class Controller {
 			System.out.println("Please input the number of hashes that you wish to crack");
 			String numOfHashes = inputScanner.nextLine();
 			int numohash = Integer.parseInt(numOfHashes);
+			listOfHashes.add(numOfHashes);
 			for(int h = 0; numohash > h; h++)
 			{
 				
@@ -216,12 +217,40 @@ public class Controller {
 				String hash = inputScanner.nextLine();
 				listOfHashes.add(hash);
 			}
+			System.out.println("Please enter the characters you would like to test. ENTER THEM IN THE SAME ORDER THAT THEY APPEAR. Enter 1 option per line. l = lowercase, u = uppercase, n = numbers, s = special characters. Default is only lowercase.");
+			String l = inputScanner.nextLine();
+			if(!l.equals("l"))
+			{
+				l = "none";
+			}
+			listOfHashes.add(l);
+			String u = inputScanner.nextLine();
+			if(!u.equals("u"))
+			{
+				u = "none";
+			}
+			listOfHashes.add(u);
+			String n = inputScanner.nextLine();
+			if(!n.equals("n"))
+			{
+				n = "none";
+			}
+			listOfHashes.add(n);
+			String s = inputScanner.nextLine();
+			if(!s.equals("s"))
+			{
+				s = "none";
+			}
+			listOfHashes.add(s);
+			
+			//System.out.println(listOfHashes.size());
+			//System.out.println(listOfHashes.toArray(new String[listOfHashes.size()]));
 			System.out.println("Allow to run in background?(y/n)");
 			String background = inputScanner.nextLine();
 			if(background.equals("y"))
 			{
 				System.out.println("This feature will be added in the future... sorry, silent mode has started");
-				System.out.println("Starting in non-background mode");
+				System.out.println("Starting in silent mode");
 				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
 				MD5BruteCrackBG.main(listOfHashes.toArray(new String[listOfHashes.size()]));
 				restart();

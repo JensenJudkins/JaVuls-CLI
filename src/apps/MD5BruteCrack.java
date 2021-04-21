@@ -16,10 +16,55 @@ public class MD5BruteCrack
 	int max_num_chars;
 
 	
-	public MD5BruteCrack() throws Exception
+	public MD5BruteCrack(String l, String u, String n, String s) throws Exception
 	{
-		min_char_value = 32;
-		max_char_value = 126;
+		if(!l.contentEquals("none"))
+		{
+			min_char_value = 97;
+		}
+		else if(!u.contentEquals("none"))
+		{
+			min_char_value = 65;
+		}
+		else if(!n.contentEquals("none"))
+		{
+			min_char_value = 48;
+		}
+		else if(!s.contentEquals("none"))
+		{
+			min_char_value = 32;
+		}
+		else {
+			min_char_value = 48;
+		}
+		
+		
+		
+		
+		if(!s.contentEquals("none"))
+		{
+			max_char_value = 47;
+		}
+		else if(!n.contentEquals("none"))
+		{
+			max_char_value = 57;
+		}
+		else if(!u.contentEquals("none"))
+		{
+			max_char_value = 90;
+		}
+		else if(!l.contentEquals("none"))
+		{
+			max_char_value = 126;
+		}
+		else {
+			max_char_value = 126;
+		}
+		
+		
+		
+		
+		
 		max_num_chars = 10;
 		
 		md = MessageDigest.getInstance("MD5");
@@ -101,7 +146,7 @@ public class MD5BruteCrack
 	{
 		try
 		{
-			MD5BruteCrack bc = new MD5BruteCrack();
+			MD5BruteCrack bc = new MD5BruteCrack(testword, testword, testword, testword);
 			long start;
 			long end;
 			String answer;
@@ -134,9 +179,10 @@ public class MD5BruteCrack
 	
 	public static void main(String args[])
 	{
-		if(args.length > 0)
+		int numOfHashes = Integer.parseInt(args[0]);
+		if(numOfHashes > 0)
 		{
-			for(int h = 0; args.length > h; h++)
+			for(int h = 1; numOfHashes >= h; h++)
 			{
 				try
 				{
@@ -144,7 +190,17 @@ public class MD5BruteCrack
 						System.out.println("Argument "+ h + " is blank, skipping");
 						h++;
 					}
-					MD5BruteCrack bc = new MD5BruteCrack();
+					int numberOfArgs = args.length;
+					int startingNumForQuery = numberOfArgs - 4;
+					System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
+					for(int k=startingNumForQuery-1; k < startingNumForQuery; k++)
+					{
+						if (args[k].equals(""))
+						{
+							args[startingNumForQuery] = "n";
+						}
+					}
+					MD5BruteCrack bc = new MD5BruteCrack(args[startingNumForQuery], args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3]);
 					long start;
 					long end;
 					String answer;
