@@ -220,10 +220,10 @@ public class Controller {
 			String background = inputScanner.nextLine();
 			if(background.equals("y"))
 			{
-				System.out.println("This feature will be added in the future... sorry");
+				System.out.println("This feature will be added in the future... sorry, silent mode has started");
 				System.out.println("Starting in non-background mode");
 				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
-				MD5BruteCrack.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+				MD5BruteCrackBG.main(listOfHashes.toArray(new String[listOfHashes.size()]));
 				restart();
 			}
 			else

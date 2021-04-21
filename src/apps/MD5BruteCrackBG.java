@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 
 import javax.swing.JOptionPane;
 
-public class MD5BruteCrack
+public class MD5BruteCrackBG
 {
 	MessageDigest md;
 	
@@ -16,7 +16,7 @@ public class MD5BruteCrack
 	int max_num_chars;
 
 	
-	public MD5BruteCrack() throws Exception
+	public MD5BruteCrackBG() throws Exception
 	{
 		min_char_value = 32;
 		max_char_value = 126;
@@ -47,7 +47,7 @@ public class MD5BruteCrack
 				md.reset();
 				md.update(new String(guess).getBytes());
 				guess_hash = hashToString(md.digest());
-				System.out.println(guess_hash);
+				//System.out.println(guess_hash);
 				if(hash.equals(guess_hash))
 				{
 					done = true;
