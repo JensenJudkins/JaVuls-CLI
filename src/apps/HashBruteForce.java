@@ -1,9 +1,7 @@
 package apps;
 
 import java.security.MessageDigest;
-import java.util.concurrent.TimeUnit;
 
-import javax.swing.JOptionPane;
 
 public class HashBruteForce
 {
@@ -102,12 +100,14 @@ public class HashBruteForce
 	
 	public String crackBG(String hash)
 	{
+		System.out.println("This feature will be added in the future... sorry, non-verbose mode has started");
+		System.out.println("Cracking: " + hash);
 		boolean done = false;
 		String guess_hash;
 			
 		for(int num_chars = 0; num_chars < max_num_chars && !done; num_chars++)
 		{
-			// Initialize guess at the start of each interation
+			// Initialize guess at the start of each iteration
 			guess = new char[num_chars];
 			for(int x = 0; x < num_chars; x++)
 			{
@@ -170,33 +170,7 @@ public class HashBruteForce
 		return sb.toString();
 	}
 	
-	public static String test(String testword)
-	{
-		try
-		{
-			MD5BruteCrack bc = new MD5BruteCrack(testword, testword, testword, testword);
-			long start;
-			long end;
-			String answer;
-		
-			start = System.nanoTime();
-			answer = bc.crack(testword);
-			end = System.nanoTime();
-			
-			long timeTogether = (end - start)/1000000000;
-		
-			System.out.println("Answer: " + answer);
-			System.out.println("Processing Time: " + ((end - start)/1000000000));
-			String time = Long.toString(timeTogether);
-			JOptionPane.showMessageDialog(null, hashcracked(answer, time));
-			return answer;
-		}
-		catch(Exception e)
-		{
-			System.out.println("Exception: " + e.toString());
-			return "somethingfailed";
-		}
-	}
+	
 	
 	public static String hashcracked(String answer, String time)
 	{
@@ -221,7 +195,7 @@ public class HashBruteForce
 					}
 					int numberOfArgs = args.length;
 					int startingNumForQuery = numberOfArgs - 6;
-					System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
+					//System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
 					for(int k=startingNumForQuery-1; k < startingNumForQuery; k++)
 					{
 						if (args[k].equals(""))

@@ -1,11 +1,9 @@
 package apps;
-import java.io.IOException;
 import java.net.InetSocketAddress;
     import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
     import java.util.List;
-    import java.util.Scanner;
     import java.util.concurrent.Callable;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.ExecutorService;

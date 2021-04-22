@@ -11,10 +11,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.*;
 import apps.*;
 
 import java.lang.Integer;
@@ -68,7 +65,7 @@ public class Controller {
 		//MD5 Brute Force
 		if(x == 5)
 		{
-			MD5BruteForce();
+			HashBruteForce();
 		}
 		if(x == 6)
 		{
@@ -78,10 +75,7 @@ public class Controller {
 		{
 			HTTPServer();
 		}
-		if(x == 8)
-		{
-			HashBruteForce();
-		}
+		
 	}
 	public void PublicIPLookup() {
 		try {
@@ -204,93 +198,7 @@ public class Controller {
 		}
 		
 	}
-	public void MD5BruteForce() {
-		//System.out.println("Are there multiple hashes to crack? (y/n)");
-		//String moreHashes = inputScanner.nextLine();
-		//if(moreHashes.equals("y"))
-		//{
-			List<String> listOfHashes = new ArrayList<String>();
-			System.out.println("Please input the number of hashes that you wish to crack");
-			String numOfHashes = inputScanner.nextLine();
-			int numohash = Integer.parseInt(numOfHashes);
-			listOfHashes.add(numOfHashes);
-			for(int h = 0; numohash > h; h++)
-			{
-				
-				System.out.println("Input the MD5 Hash");
-				String hash = inputScanner.nextLine();
-				listOfHashes.add(hash);
-			}
-			System.out.println("Please enter the characters you would like to test. ");
-			System.out.println("Simply type the letter option in lowercase, or type a lowercase y for 'yes'. Enter 1 option per line.");
-			System.out.println("");
-			System.out.println("AKA Type the letter in the parenthesesis if you want to add them to the char set");
-			System.out.println("");
-			System.out.println("Lower Case (l)");
-			String l = inputScanner.nextLine();
-			if(!l.equals("l"))
-			{
-				l = "none";
-			}
-			listOfHashes.add(l);
-			System.out.println("Upper Case (u)");
-			String u = inputScanner.nextLine();
-			if(!u.equals("u"))
-			{
-				u = "none";
-			}
-			listOfHashes.add(u);
-			System.out.println("Numbers (n)");
-			String n = inputScanner.nextLine();
-			if(!n.equals("n"))
-			{
-				n = "none";
-			}
-			listOfHashes.add(n);
-			System.out.println("Special Characters (s) [i.e. !@#$% etc]");
-			String s = inputScanner.nextLine();
-			if(!s.equals("s"))
-			{
-				s = "none";
-			}
-			listOfHashes.add(s);
-			
-			//System.out.println(listOfHashes.size());
-			//System.out.println(listOfHashes.toArray(new String[listOfHashes.size()]));
-			System.out.println("Allow to run in background?(y/n)");
-			String background = inputScanner.nextLine();
-			if(background.equals("y"))
-			{
-				System.out.println("This feature will be added in the future... sorry, silent mode has started");
-				System.out.println("Starting in silent mode");
-				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
-				MD5BruteCrackBG.main(listOfHashes.toArray(new String[listOfHashes.size()]));
-				restart();
-			}
-			else
-			{
-				System.out.println("Cracking " + listOfHashes.size() + "Hashes");
-				HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
-				restart();
-			}
-			
-		//}
-		//else {
-		//	System.out.println("Input the MD5 Hash");
-		//	String hash = inputScanner.nextLine();
-		//	System.out.println("Allow to run in background?(y/n)");
-		//	String background = inputScanner.nextLine();
-		//	if(background.equals("y"))
-		//	{
-		//		System.out.println("This feature will be added in the future... sorry");
-		//		System.out.println("Starting in non-background mode");
-		//	}
-		//	else
-		//	{
-		//		MD5BruteCrack.main(hash);
-		//	}
-		//}	
-	}
+	
 	public void SlowLoris() {
 		System.out.println("Please input the website/host");
 		String host = inputScanner.nextLine();
@@ -332,15 +240,7 @@ public class Controller {
 		}
 		
 	}
-	
-	
-	
-	
 	public void HashBruteForce() {
-		//System.out.println("Are there multiple hashes to crack? (y/n)");
-		//String moreHashes = inputScanner.nextLine();
-		//if(moreHashes.equals("y"))
-		//{
 			List<String> listOfHashes = new ArrayList<String>();
 			System.out.println("Please input the number of hashes that you wish to crack");
 			String numOfHashes = inputScanner.nextLine();
@@ -366,7 +266,7 @@ public class Controller {
 			for(int h = 0; numohash > h; h++)
 			{
 				
-				System.out.println("Input Hash Number: " + h);
+				System.out.println("Input Hash (" + (h+1) + "): ");
 				String hash = inputScanner.nextLine();
 				listOfHashes.add(hash);
 			}
@@ -404,35 +304,19 @@ public class Controller {
 			}
 			listOfHashes.add(s);
 			listOfHashes.add(typeOfHash);
-			
-			//System.out.println(listOfHashes.size());
-			//System.out.println(listOfHashes.toArray(new String[listOfHashes.size()]));
+
 			System.out.println("Allow to run in background?(y?)");
 			String background = inputScanner.nextLine();
+			if(!background.equals("y"))
+			{
+				background = "no";
+			}
 			listOfHashes.add(background);
-			System.out.println("This feature will be added in the future... sorry, silent mode has started");
-			System.out.println("Starting in silent mode");
-			System.out.println("Cracking " + listOfHashes.size() + "Hashes");
+
+			//System.out.println("Cracking " + listOfHashes.size() + " Hashes");
 			HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
 			restart();
-			
-			
-		//}
-		//else {
-		//	System.out.println("Input the MD5 Hash");
-		//	String hash = inputScanner.nextLine();
-		//	System.out.println("Allow to run in background?(y/n)");
-		//	String background = inputScanner.nextLine();
-		//	if(background.equals("y"))
-		//	{
-		//		System.out.println("This feature will be added in the future... sorry");
-		//		System.out.println("Starting in non-background mode");
-		//	}
-		//	else
-		//	{
-		//		MD5BruteCrack.main(hash);
-		//	}
-		//}	
+
 	}
 
 
