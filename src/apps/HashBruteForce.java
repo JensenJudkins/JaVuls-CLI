@@ -1,10 +1,11 @@
 package apps;
 
 import java.security.MessageDigest;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JOptionPane;
 
-public class MD5BruteCrackBG
+public class HashBruteForce
 {
 	MessageDigest md;
 	
@@ -16,7 +17,7 @@ public class MD5BruteCrackBG
 	int max_num_chars;
 
 	
-	public MD5BruteCrackBG(String l, String u, String n, String s) throws Exception
+	public HashBruteForce(String l, String u, String n, String s, String hashType) throws Exception
 	{
 		if(!l.contentEquals("none"))
 		{
@@ -63,12 +64,43 @@ public class MD5BruteCrackBG
 		
 		max_num_chars = 10;
 		
-		md = MessageDigest.getInstance("MD5");
+		md = MessageDigest.getInstance(hashType);
+		//TimeUnit.SECONDS.sleep(30);
 		
 		guess = null;
 	}
 	
 	public String crack(String hash)
+	{
+		boolean done = false;
+		String guess_hash;
+			
+		for(int num_chars = 0; num_chars < max_num_chars && !done; num_chars++)
+		{
+			// Initialize guess at the start of each interation
+			guess = new char[num_chars];
+			for(int x = 0; x < num_chars; x++)
+			{
+				guess[x] = min_char_value;
+			}
+			
+			while(canIncrementGuess() && !done)
+			{
+				incrementGuess();
+				md.reset();
+				md.update(new String(guess).getBytes());
+				guess_hash = hashToString(md.digest());
+				System.out.println(guess);
+				if(hash.equals(guess_hash))
+				{
+					done = true;
+				}
+			}
+		}
+		return new String(guess);
+	}
+	
+	public String crackBG(String hash)
 	{
 		boolean done = false;
 		String guess_hash;
@@ -142,7 +174,7 @@ public class MD5BruteCrackBG
 	{
 		try
 		{
-			MD5BruteCrackBG bc = new MD5BruteCrackBG(testword, testword, testword, testword);
+			MD5BruteCrack bc = new MD5BruteCrack(testword, testword, testword, testword);
 			long start;
 			long end;
 			String answer;
@@ -176,6 +208,7 @@ public class MD5BruteCrackBG
 	public static void main(String args[])
 	{
 		int numOfHashes = Integer.parseInt(args[0]);
+		
 		if(numOfHashes > 0)
 		{
 			for(int h = 1; numOfHashes >= h; h++)
@@ -187,7 +220,7 @@ public class MD5BruteCrackBG
 						h++;
 					}
 					int numberOfArgs = args.length;
-					int startingNumForQuery = numberOfArgs - 4;
+					int startingNumForQuery = numberOfArgs - 6;
 					System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
 					for(int k=startingNumForQuery-1; k < startingNumForQuery; k++)
 					{
@@ -196,13 +229,21 @@ public class MD5BruteCrackBG
 							args[startingNumForQuery] = "n";
 						}
 					}
-					MD5BruteCrackBG bc = new MD5BruteCrackBG(args[startingNumForQuery], args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3]);
+					HashBruteForce bc = new HashBruteForce(args[startingNumForQuery], args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3], args[startingNumForQuery+4]);
 					long start;
 					long end;
 					String answer;
 				
 					start = System.nanoTime();
-					answer = bc.crack(args[h]);
+					if(args[startingNumForQuery+5].equals("y"))
+					{
+						answer = bc.crackBG(args[h]);
+					}
+					else
+					{
+						answer = bc.crack(args[h]);
+					}
+					
 					end = System.nanoTime();
 				
 					System.out.println("Answer: " + answer);

@@ -22,21 +22,19 @@ public class MD5BruteCrack
 		{
 			min_char_value = 97;
 		}
-		else if(!u.contentEquals("none"))
+		if(!u.contentEquals("none"))
 		{
 			min_char_value = 65;
 		}
-		else if(!n.contentEquals("none"))
+		if(!n.contentEquals("none"))
 		{
 			min_char_value = 48;
 		}
-		else if(!s.contentEquals("none"))
+		if(!s.contentEquals("none"))
 		{
 			min_char_value = 32;
 		}
-		else {
-			min_char_value = 48;
-		}
+		
 		
 		
 		
@@ -45,21 +43,19 @@ public class MD5BruteCrack
 		{
 			max_char_value = 47;
 		}
-		else if(!n.contentEquals("none"))
+		if(!n.contentEquals("none"))
 		{
 			max_char_value = 57;
 		}
-		else if(!u.contentEquals("none"))
+		if(!u.contentEquals("none"))
 		{
 			max_char_value = 90;
 		}
-		else if(!l.contentEquals("none"))
+		if(!l.contentEquals("none"))
 		{
 			max_char_value = 126;
 		}
-		else {
-			max_char_value = 126;
-		}
+		
 		
 		
 		
