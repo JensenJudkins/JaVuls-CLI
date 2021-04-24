@@ -67,13 +67,17 @@ public class Controller {
 		{
 			HashBruteForce();
 		}
-		if(x == 6)
+		if(x == 7)
 		{
 			SlowLoris();
 		}
-		if(x == 7)
+		if(x == 8)
 		{
 			HTTPServer();
+		}
+		if(x == 6)
+		{
+			BenchmarkHashRate();
 		}
 		
 	}
@@ -307,7 +311,11 @@ public class Controller {
 
 			System.out.println("Allow to run in background?(y?)");
 			String background = inputScanner.nextLine();
-			if(!background.equals("y"))
+			if(background.equals("y"))
+			{
+				System.out.println("This feature will be added in the future... sorry, non-verbose mode has started");
+			}
+			else
 			{
 				background = "no";
 			}
@@ -318,7 +326,157 @@ public class Controller {
 			restart();
 
 	}
-
+	public void BenchmarkHashRate()
+	{
+		System.out.println("Benchmark will test how long it takes for each algorythmn to get to 94^3 hashes or 830,584 guesses");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		List<String> listOfHashes = new ArrayList<String>();
+		String numOfHashes = "1";
+		int numohash = Integer.parseInt(numOfHashes);
+		listOfHashes.add(numOfHashes);
+		String typeOfHash = "MD2";
+		String hash = "887938f312078f5287d3114d3bb9d2d2";
+		listOfHashes.add(hash);
+		String l ="l";
+		String u ="u";
+		String n ="n";
+		String s ="s";
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		String background = "y";
+		listOfHashes.add(background);
+		String benchmark ="y";
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "MD5";
+		hash = "102c3439d577d1d0d552b03fcae27c5e";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "SHA-1";
+		hash = "40ef8e2f391a7167d3643c402aff5290167914a6";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "SHA-224";
+		hash = "5e0cb235996b2b1c75af0454df59f52dce03a792959ee50ea9927865";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "SHA-256";
+		hash = "a03f2fd631370334952c5db487ce810e6af747de720ed7a05543a4c1204d3998";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "SHA-384";
+		hash = "04cc6681b210fca435c5fae5610ae021d72382ac8a3b1d6a366aa8e7c897d2cc60b21f011eeeab8a9263570648e3b309";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		typeOfHash = "SHA-512/224";
+		hash = "444e291be9148571c9b3f03c94b2482f24d3b15bc96cb3901616117b";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		listOfHashes.add(numOfHashes);
+		hash = "f0dbd2a766db0c870542c2adadc28cf548d9f3b4be6e5e29fbf0ee03d3b163c5";
+		typeOfHash = "SHA-512/256";
+		listOfHashes.add(hash);
+		listOfHashes.add(l);
+		listOfHashes.add(u);
+		listOfHashes.add(n);
+		listOfHashes.add(s);
+		listOfHashes.add(typeOfHash);
+		listOfHashes.add(background);
+		listOfHashes.add(benchmark);
+		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+		listOfHashes.clear();
+		System.out.println("");
+		System.out.println("");
+		
+		
+		
+		
+		restart();
+		
+		
+	}
 
 
 

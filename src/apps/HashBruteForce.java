@@ -100,7 +100,7 @@ public class HashBruteForce
 	
 	public String crackBG(String hash)
 	{
-		System.out.println("This feature will be added in the future... sorry, non-verbose mode has started");
+		
 		System.out.println("Cracking: " + hash);
 		boolean done = false;
 		String guess_hash;
@@ -194,7 +194,7 @@ public class HashBruteForce
 						h++;
 					}
 					int numberOfArgs = args.length;
-					int startingNumForQuery = numberOfArgs - 6;
+					int startingNumForQuery = numberOfArgs - 7;
 					//System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
 					for(int k=startingNumForQuery-1; k < startingNumForQuery; k++)
 					{
@@ -220,8 +220,18 @@ public class HashBruteForce
 					
 					end = System.nanoTime();
 				
-					System.out.println("Answer: " + answer);
-					System.out.println("Processing Time: " + ((end - start)/1000000000));
+					
+					if(args[startingNumForQuery+6].equals("y"))
+						{
+						System.out.println("Hashing algorythmn: "+ args[startingNumForQuery+4]);
+						System.out.println("Processing Time: " + ((end - start)/1000000000)+" Seconds, " + ((end - start)/1000000)+" Milliseconds (10^-3 thousandth), " + ((end - start)/1000)+" Microseconds (10^-6 millienth), " + ((end - start)/1)+" Nanoseconds (10^-9 billienth)");
+						}
+					else {
+						System.out.println("Hashing algorythmn: "+ args[startingNumForQuery+4]);
+						System.out.println("Answer: " + answer);
+						System.out.println("Processing Time: " + ((end - start)/1000000000));	
+					}
+					
 				}
 				catch(Exception e)
 				{
