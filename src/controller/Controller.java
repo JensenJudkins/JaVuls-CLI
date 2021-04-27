@@ -251,7 +251,7 @@ public class Controller {
 			int numohash = Integer.parseInt(numOfHashes);
 			listOfHashes.add(numOfHashes);
 			System.out.println("Please input the type of hash EXACTLY AS SEEN");
-			System.out.println("Supported hashes (Default is MD5)"
+			System.out.println("Supported hashes (Default is MD5)\n"
 					+ "MD2\n"
 					+ "MD5\n"
 					+ "SHA-1\n"
@@ -267,6 +267,7 @@ public class Controller {
 			{
 				typeOfHash = "MD5";
 			}
+			listOfHashes.add(typeOfHash);
 			for(int h = 0; numohash > h; h++)
 			{
 				
@@ -307,7 +308,7 @@ public class Controller {
 				s = "none";
 			}
 			listOfHashes.add(s);
-			listOfHashes.add(typeOfHash);
+			
 
 			System.out.println("Allow to run in background?(y?)");
 			String background = inputScanner.nextLine();
@@ -337,6 +338,7 @@ public class Controller {
 		int numohash = Integer.parseInt(numOfHashes);
 		listOfHashes.add(numOfHashes);
 		String typeOfHash = "MD2";
+		listOfHashes.add(typeOfHash);
 		String hash = "887938f312078f5287d3114d3bb9d2d2";
 		listOfHashes.add(hash);
 		String l ="l";
@@ -347,7 +349,6 @@ public class Controller {
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		String background = "y";
 		listOfHashes.add(background);
 		String benchmark ="y";
@@ -359,13 +360,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "MD5";
+		listOfHashes.add(typeOfHash);
 		hash = "102c3439d577d1d0d552b03fcae27c5e";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -375,13 +376,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "SHA-1";
+		listOfHashes.add(typeOfHash);
 		hash = "40ef8e2f391a7167d3643c402aff5290167914a6";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -391,13 +392,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "SHA-224";
+		listOfHashes.add(typeOfHash);
 		hash = "5e0cb235996b2b1c75af0454df59f52dce03a792959ee50ea9927865";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -407,13 +408,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "SHA-256";
+		listOfHashes.add(typeOfHash);
 		hash = "a03f2fd631370334952c5db487ce810e6af747de720ed7a05543a4c1204d3998";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -424,13 +425,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "SHA-384";
+		listOfHashes.add(typeOfHash);
 		hash = "04cc6681b210fca435c5fae5610ae021d72382ac8a3b1d6a366aa8e7c897d2cc60b21f011eeeab8a9263570648e3b309";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -440,13 +441,13 @@ public class Controller {
 		
 		listOfHashes.add(numOfHashes);
 		typeOfHash = "SHA-512/224";
+		listOfHashes.add(typeOfHash);
 		hash = "444e291be9148571c9b3f03c94b2482f24d3b15bc96cb3901616117b";
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
@@ -457,12 +458,12 @@ public class Controller {
 		listOfHashes.add(numOfHashes);
 		hash = "f0dbd2a766db0c870542c2adadc28cf548d9f3b4be6e5e29fbf0ee03d3b163c5";
 		typeOfHash = "SHA-512/256";
+		listOfHashes.add(typeOfHash);
 		listOfHashes.add(hash);
 		listOfHashes.add(l);
 		listOfHashes.add(u);
 		listOfHashes.add(n);
 		listOfHashes.add(s);
-		listOfHashes.add(typeOfHash);
 		listOfHashes.add(background);
 		listOfHashes.add(benchmark);
 		HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));

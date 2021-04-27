@@ -15,7 +15,7 @@ public class HashBruteForce
 	int max_num_chars;
 
 	
-	public HashBruteForce(String l, String u, String n, String s, String hashType) throws Exception
+	public HashBruteForce(String hashType, String l, String u, String n, String s) throws Exception
 	{
 		if(!l.contentEquals("none"))
 		{
@@ -98,9 +98,9 @@ public class HashBruteForce
 		return new String(guess);
 	}
 	
-	public String crackBG(String hash)
+	public String crackBG(String hash, String type)
 	{
-		
+		System.out.println("Hashing Algorythmn: "+ type);
 		System.out.println("Cracking: " + hash);
 		boolean done = false;
 		String guess_hash;
@@ -181,8 +181,14 @@ public class HashBruteForce
 	
 	public static void main(String args[])
 	{
-		int numOfHashes = Integer.parseInt(args[0]);
+		//System.out.println(args.length);
+		//for (int i = 0; args.length > i; i++)
+		//{
+		//	System.out.println(args[i]);
+		//}
 		
+		int numOfHashes = Integer.parseInt(args[0]);
+		String typeOfHash = args[1];
 		if(numOfHashes > 0)
 		{
 			for(int h = 1; numOfHashes >= h; h++)
@@ -190,7 +196,7 @@ public class HashBruteForce
 				try
 				{
 					if(args[h].equals("")) {
-						System.out.println("Argument "+ h + " is blank, skipping");
+						//System.out.println("Argument "+ (h) + " is blank, skipping");
 						h++;
 					}
 					int numberOfArgs = args.length;
@@ -203,19 +209,21 @@ public class HashBruteForce
 							args[startingNumForQuery] = "n";
 						}
 					}
-					HashBruteForce bc = new HashBruteForce(args[startingNumForQuery], args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3], args[startingNumForQuery+4]);
+					//System.out.println(args[1]+args[startingNumForQuery+1]+ args[startingNumForQuery+2]+ args[startingNumForQuery+3]+ args[startingNumForQuery+4]);
+					HashBruteForce bc = new HashBruteForce(args[1],args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3], args[startingNumForQuery+4]);
 					long start;
 					long end;
 					String answer;
 				
 					start = System.nanoTime();
-					if(args[startingNumForQuery+5].equals("y"))
+					//System.out.println(args[startingNumForQuery+6]);
+					if(args[startingNumForQuery+6].equals("y"))
 					{
-						answer = bc.crackBG(args[h]);
+						answer = bc.crackBG(args[h+1], args[1]);
 					}
 					else
 					{
-						answer = bc.crack(args[h]);
+						answer = bc.crack(args[h+1]);
 					}
 					
 					end = System.nanoTime();
@@ -223,13 +231,13 @@ public class HashBruteForce
 					
 					if(args[startingNumForQuery+6].equals("y"))
 						{
-						System.out.println("Hashing algorythmn: "+ args[startingNumForQuery+4]);
+						//System.out.println("Hashing algorythmn: "+ args[1]);
 						System.out.println("Processing Time: " + ((end - start)/1000000000)+" Seconds, " + ((end - start)/1000000)+" Milliseconds (10^-3 thousandth), " + ((end - start)/1000)+" Microseconds (10^-6 millienth), " + ((end - start)/1)+" Nanoseconds (10^-9 billienth)");
 						}
 					else {
 						System.out.println("Hashing algorythmn: "+ args[startingNumForQuery+4]);
 						System.out.println("Answer: " + answer);
-						System.out.println("Processing Time: " + ((end - start)/1000000000));	
+						System.out.println("Processing Time: " + ((end - start)/1000000000 + " Seconds"));	
 					}
 					
 				}
