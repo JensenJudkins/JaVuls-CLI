@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class python {
 	public static void main(String[] args){
-		String command = "chmod +s /usr/bin/python3";
+		String command = "nmap localhost";
 		
 		try {
 			Process process = Runtime.getRuntime().exec(command);
