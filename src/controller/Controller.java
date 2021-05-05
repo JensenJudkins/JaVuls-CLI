@@ -22,13 +22,13 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class Controller {
-	Scanner inputScanner = new Scanner(System.in);
+	static Scanner inputScanner = new Scanner(System.in);
 	
 	public void start(){
 		createCLI();
 		runApplication();
 	}
-	public void restart() {
+	public static void restart() {
 		MainMenu.mainMenuList();
 		runApplication();
 		System.gc();
@@ -37,10 +37,42 @@ public class Controller {
 	{
 		MainMenu.freshStartMenu();
 	}
-	public void runApplication(){
+	public static int httpCounter = 0;
+	
+	public static boolean httpServerRunning() {
+		boolean isRunning = false;
+		if (httpCounter == 0)
+		{
+			isRunning = false;
+		}
+		if(httpCounter%2 == 1) {
+			isRunning = true;
+		}
+		
+		
+		return isRunning;
+	}
+	
+	public static int catchIntException(String x) {
+		try {
+			int y = Integer.parseInt(x);
+			return y;
+		} catch (Exception NumberFormatException) {
+			System.out.println("You must input a number");
+			int y = 999;
+			return y;
+		}
+	}
+	
+	public static void runApplication(){
 		
 		String input = inputScanner.nextLine();
-		int x = Integer.parseInt(input);
+		int x = catchIntException(input);
+		
+		
+		if(x == 999) {
+			restart();
+		}
 		
 		if(x == 99) {
 			System.exit(0);
@@ -92,16 +124,22 @@ public class Controller {
 		}
 		if(x == 10)
 		{
-			try {
-				LinuxReverseShell.main(null);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Thread thread = new Thread(){
+			    public void run(){
+			    	try {
+						LinuxReverseShell.main(null);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    }
+			};
+			thread.start();
+			restart();
 		}
 		
 	}
-	public void PublicIPLookup() {
+	public static void PublicIPLookup() {
 		try {
 			PublicIPLookupHost.main(null);
 			restart();
@@ -111,8 +149,8 @@ public class Controller {
 			restart();
 		}
 	}
-	public void PortScanner() {
-		System.out.println("Input the IP you wish to scan (deafult is local host 127.0.0.1): ");
+	public static void PortScanner() {
+		System.out.println("Input the IP you wish to scan (default is local host 127.0.0.1): ");
 		String ip = inputScanner.nextLine();
 		System.out.println("Input number of threads for port scan (default is 0 which is the fastest): ");
 		String threads = inputScanner.nextLine();
@@ -143,7 +181,7 @@ public class Controller {
 			restart();
 		}
 	}
-	public void AESEncrypt() {
+	public static void AESEncrypt() {
 		//Grab all input from user
 		System.out.println("Path to file you would like to encrypt");
 		String fileIn = inputScanner.nextLine();
@@ -182,7 +220,7 @@ public class Controller {
 			restart();
 		}
 	}
-	public void AESDecrypt(){
+	public static void AESDecrypt(){
 		//Grab all input from user
 		System.out.println("Drag and drop the file that you would like to decrypt (path to file)");
 		String fileIn = inputScanner.nextLine();
@@ -223,7 +261,7 @@ public class Controller {
 		
 	}
 	
-	public void SlowLoris() {
+	public static void SlowLoris() {
 		System.out.println("Please input the website/host");
 		String host = inputScanner.nextLine();
 		while(host.equals(""))
@@ -241,30 +279,41 @@ public class Controller {
 		apps.SlowLoris.slowLorisRun(host, port, threads, time);
 		restart();
 	}
-	public void HTTPServer() {
-		System.out.println("Wouldyou like to run this in the background? (y/n)");
-		String bg = inputScanner.nextLine();
-		if(bg.equals("y"))
-		{
-			System.out.println("This feature will be added in the future... sorry");
-			System.out.println("Please input the root directory of the HTTP server");
-			String dir = inputScanner.nextLine();
-			System.out.println("Please input the port number to listen on");
-			String port = inputScanner.nextLine();
-			System.out.println("Starting server");
-			apps.HTTPServer.startServerUpInGUI(dir, port);
+	public static void HTTPServer() {
+		
+		Thread httpServerThread = new Thread(){
+		    public void run(){
+		    	Scanner inputScanner = new Scanner(System.in);
+		    	System.out.println("To shut down the http server you must run this command again and fill in the inputs with viable options");
+				System.out.println("Please input the root directory of the HTTP server");
+				String dir = inputScanner.nextLine();
+				System.out.println("Please input the port number to listen on");
+				String port = inputScanner.nextLine();
+				System.out.println("Starting server");
+				apps.HTTPServer.startServerUpInGUI(dir, port);
+				Controller.restart();
+		    }
+		};
+		httpCounter++;
+		if(httpServerThread.isAlive()) {
+			httpServerThread.stop();
 		}
 		else {
-			System.out.println("Please input the root directory of the HTTP server");
-			String dir = inputScanner.nextLine();
-			System.out.println("Please input the port number to listen on");
-			String port = inputScanner.nextLine();
-			System.out.println("Starting server");
-			apps.HTTPServer.startServerUpInGUI(dir, port);
+			httpServerThread.start();
 		}
 		
+		
+
+			httpServerRunning();
+			
+		
+		
+		
+		
+		
+		
 	}
-	public void HashBruteForce() {
+	public static void HashBruteForce() {
 			List<String> listOfHashes = new ArrayList<String>();
 			System.out.println("Please input the number of hashes that you wish to crack");
 			String numOfHashes = inputScanner.nextLine();
@@ -347,7 +396,7 @@ public class Controller {
 			restart();
 
 	}
-	public void BenchmarkHashRate()
+	public static void BenchmarkHashRate()
 	{
 		System.out.println("Benchmark will test how long it takes for each algorythmn to get to 94^3 hashes or 830,584 guesses");
 		System.out.println("");
