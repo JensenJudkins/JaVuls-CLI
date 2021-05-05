@@ -37,15 +37,15 @@ public class Controller {
 	{
 		MainMenu.freshStartMenu();
 	}
-	public static int counter = 0;
+	public static int httpCounter = 0;
 	
 	public static boolean httpServerRunning() {
 		boolean isRunning = false;
-		if (counter == 0)
+		if (httpCounter == 0)
 		{
 			isRunning = false;
 		}
-		if(counter%2 == 1) {
+		if(httpCounter%2 == 1) {
 			isRunning = true;
 		}
 		
@@ -284,6 +284,7 @@ public class Controller {
 		Thread httpServerThread = new Thread(){
 		    public void run(){
 		    	Scanner inputScanner = new Scanner(System.in);
+		    	System.out.println("To shut down the http serevr you must run this command again and fill in the inputs with viable options");
 				System.out.println("Please input the root directory of the HTTP server");
 				String dir = inputScanner.nextLine();
 				System.out.println("Please input the port number to listen on");
@@ -293,7 +294,7 @@ public class Controller {
 				Controller.restart();
 		    }
 		};
-		counter++;
+		httpCounter++;
 		if(httpServerThread.isAlive()) {
 			httpServerThread.stop();
 		}
