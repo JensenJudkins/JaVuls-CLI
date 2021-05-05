@@ -61,7 +61,7 @@ public class MainMenu {
     
     public static String httpIsRunning() {
     	String on = " Off";
-    	if(Controller.HTTPServer())
+    	if(Controller.httpServerRunning())
     	{
     		on = " Running";
     	}

@@ -37,17 +37,42 @@ public class Controller {
 	{
 		MainMenu.freshStartMenu();
 	}
+	public static int counter = 0;
 	
-	public boolean httpServerRunning() {
+	public static boolean httpServerRunning() {
 		boolean isRunning = false;
+		if (counter == 0)
+		{
+			isRunning = false;
+		}
+		if(counter%2 == 1) {
+			isRunning = true;
+		}
+		
 		
 		return isRunning;
+	}
+	
+	public static int catchIntException(String x) {
+		try {
+			int y = Integer.parseInt(x);
+			return y;
+		} catch (Exception NumberFormatException) {
+			System.out.println("You must input a number");
+			int y = 999;
+			return y;
+		}
 	}
 	
 	public static void runApplication(){
 		
 		String input = inputScanner.nextLine();
-		int x = Integer.parseInt(input);
+		int x = catchIntException(input);
+		
+		
+		if(x == 999) {
+			restart();
+		}
 		
 		if(x == 99) {
 			System.exit(0);
@@ -254,7 +279,7 @@ public class Controller {
 		apps.SlowLoris.slowLorisRun(host, port, threads, time);
 		restart();
 	}
-	public static boolean HTTPServer() {
+	public static void HTTPServer() {
 		
 		Thread httpServerThread = new Thread(){
 		    public void run(){
@@ -271,9 +296,20 @@ public class Controller {
 				Controller.restart();
 		    }
 		};
-		httpServerThread.start();
+		counter++;
+		if(httpServerThread.isAlive()) {
+			httpServerThread.stop();
+		}
+		else {
+			httpServerThread.start();
+		}
 		
-		return httpServerThread.isAlive();
+		
+
+			httpServerRunning();
+			
+		
+		
 		
 		
 		
