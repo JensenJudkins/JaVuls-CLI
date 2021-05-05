@@ -284,15 +284,12 @@ public class Controller {
 		Thread httpServerThread = new Thread(){
 		    public void run(){
 		    	Scanner inputScanner = new Scanner(System.in);
-		    	
-				
-					System.out.println("Please input the root directory of the HTTP server");
-					String dir = inputScanner.nextLine();
-					System.out.println("Please input the port number to listen on");
-					String port = inputScanner.nextLine();
-					System.out.println("Starting server");
-					apps.HTTPServer.startServerUpInGUI(dir, port);
-				
+				System.out.println("Please input the root directory of the HTTP server");
+				String dir = inputScanner.nextLine();
+				System.out.println("Please input the port number to listen on");
+				String port = inputScanner.nextLine();
+				System.out.println("Starting server");
+				apps.HTTPServer.startServerUpInGUI(dir, port);
 				Controller.restart();
 		    }
 		};
