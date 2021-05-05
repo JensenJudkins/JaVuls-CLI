@@ -284,7 +284,7 @@ public class Controller {
 		Thread httpServerThread = new Thread(){
 		    public void run(){
 		    	Scanner inputScanner = new Scanner(System.in);
-		    	System.out.println("To shut down the http serevr you must run this command again and fill in the inputs with viable options");
+		    	System.out.println("To shut down the http server you must run this command again and fill in the inputs with viable options");
 				System.out.println("Please input the root directory of the HTTP server");
 				String dir = inputScanner.nextLine();
 				System.out.println("Please input the port number to listen on");
