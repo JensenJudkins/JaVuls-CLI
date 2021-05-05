@@ -18,6 +18,8 @@ public class MainMenu {
     	System.out.println("6) Hash Brute Force Benchmark");
     	System.out.println("7) Slow Loris Attack");
     	System.out.println("8) HTTP Server");
+    	System.out.println("9) Windows Reverse Shell");
+    	System.out.println("10) Linux Reverse Shell");
     	
     	
     	

