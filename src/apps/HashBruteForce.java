@@ -172,12 +172,6 @@ public class HashBruteForce
 	
 	
 	
-	public static String hashcracked(String answer, String time)
-	{
-		String returnMe = ("Answer: " + answer + "\n" + "Processing Time: " + time);
-		
-		return  returnMe;
-	}
 	
 	public static void main(String args[])
 	{
@@ -191,51 +185,51 @@ public class HashBruteForce
 		String typeOfHash = args[1];
 		if(numOfHashes > 0)
 		{
-			for(int h = 1; numOfHashes >= h; h++)
+			for(int hashedInput = 1; numOfHashes >= hashedInput; hashedInput++)
 			{
 				try
 				{
-					if(args[h].equals("")) {
+					if(args[hashedInput].equals("")) {
 						//System.out.println("Argument "+ (h) + " is blank, skipping");
-						h++;
+						hashedInput++;
 					}
 					int numberOfArgs = args.length;
-					int startingNumForQuery = numberOfArgs - 7;
+					int startingNumForQueryOfSettings = numberOfArgs - 7;
 					//System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
-					for(int k=startingNumForQuery-1; k < startingNumForQuery; k++)
+					for(int k=startingNumForQueryOfSettings-1; k < startingNumForQueryOfSettings; k++)
 					{
 						if (args[k].equals(""))
 						{
-							args[startingNumForQuery] = "n";
+							args[startingNumForQueryOfSettings] = "n";
 						}
 					}
 					//System.out.println(args[1]+args[startingNumForQuery+1]+ args[startingNumForQuery+2]+ args[startingNumForQuery+3]+ args[startingNumForQuery+4]);
-					HashBruteForce bc = new HashBruteForce(args[1],args[startingNumForQuery+1], args[startingNumForQuery+2], args[startingNumForQuery+3], args[startingNumForQuery+4]);
+					HashBruteForce bc = new HashBruteForce(args[1],args[startingNumForQueryOfSettings+1], args[startingNumForQueryOfSettings+2], args[startingNumForQueryOfSettings+3], args[startingNumForQueryOfSettings+4]);
 					long start;
 					long end;
 					String answer;
 				
 					start = System.nanoTime();
 					//System.out.println(args[startingNumForQuery+6]);
-					if(args[startingNumForQuery+6].equals("y"))
+					if(args[startingNumForQueryOfSettings+6].equals("y"))
 					{
-						answer = bc.crackBG(args[h+1], args[1]);
+						answer = bc.crackBG(args[hashedInput+1], args[1]);
 					}
 					else
 					{
-						answer = bc.crack(args[h+1]);
+						answer = bc.crack(args[hashedInput+1]);
 					}
 					
 					end = System.nanoTime();
 				
 					
-					if(args[startingNumForQuery+6].equals("y"))
+					if(args[startingNumForQueryOfSettings+6].equals("y"))
 						{
 						//System.out.println("Hashing algorythmn: "+ args[1]);
 						System.out.println("Processing Time: " + ((end - start)/1000000000)+" Seconds, " + ((end - start)/1000000)+" Milliseconds (10^-3 thousandth), " + ((end - start)/1000)+" Microseconds (10^-6 millienth), " + ((end - start)/1)+" Nanoseconds (10^-9 billienth)");
 						}
 					else {
-						System.out.println("Hashing algorythmn: "+ args[startingNumForQuery+4]);
+						System.out.println("Hashing algorythmn: "+ args[startingNumForQueryOfSettings+4]);
 						System.out.println("Answer: " + answer);
 						System.out.println("Processing Time: " + ((end - start)/1000000000 + " Seconds"));	
 					}

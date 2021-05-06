@@ -1,8 +1,8 @@
 package controller;
 
 import navigation.*;
-import readyForImplementation.LinuxReverseShell;
 import readyForImplementation.WindowsReverseShell;
+import testApplications.HashBruteForceWordlist;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -314,6 +314,50 @@ public class Controller {
 		
 	}
 	public static void HashBruteForce() {
+		System.out.println("Will you be using a wordlist? (y)");
+		String wordlistornah = inputScanner.nextLine();
+		if(wordlistornah.equals("y"))
+		{
+			List<String> listOfHashes = new ArrayList<String>();
+			System.out.println("Please input the number of hashes that you wish to crack");
+			String numOfHashes = inputScanner.nextLine();
+			int numohash = Integer.parseInt(numOfHashes);
+			listOfHashes.add(numOfHashes);
+			System.out.println("Please input the type of hash EXACTLY AS SEEN");
+			System.out.println("Supported hashes (Default is MD5)\n"
+					+ "MD2\n"
+					+ "MD5\n"
+					+ "SHA-1\n"
+					+ "SHA-224\n"
+					+ "SHA-256\n"
+					+ "SHA-384\n"
+					+ "SHA-512/224\n"
+					+ "SHA-512/256");
+			
+			String typeOfHash = inputScanner.nextLine();
+			if(!typeOfHash.equals("MD2") && !typeOfHash.equals("MD5") && !typeOfHash.equals("SHA-1") && !typeOfHash.equals("SHA-224") &&
+					 !typeOfHash.equals("SHA-256") && !typeOfHash.equals("SHA-384") && !typeOfHash.equals("SHA-512/224") && !typeOfHash.equals("SHA-512/256"))
+			{
+				typeOfHash = "MD5";
+			}
+			listOfHashes.add(typeOfHash);
+			for(int h = 0; numohash > h; h++)
+			{
+				
+				System.out.println("Input Hash (" + (h+1) + "): ");
+				String hash = inputScanner.nextLine();
+				listOfHashes.add(hash);
+			}
+			System.out.println("Please add the exact path to the wordlist file you wish to use (INCLUDING '/home/(user)/':");
+			String path = inputScanner.nextLine();
+			listOfHashes.add(path);
+			
+			
+			HashBruteForceWordlist.main(listOfHashes.toArray(new String[listOfHashes.size()]));
+			restart();
+			
+		}
+		else {
 			List<String> listOfHashes = new ArrayList<String>();
 			System.out.println("Please input the number of hashes that you wish to crack");
 			String numOfHashes = inputScanner.nextLine();
@@ -394,6 +438,12 @@ public class Controller {
 			//System.out.println("Cracking " + listOfHashes.size() + " Hashes");
 			HashBruteForce.main(listOfHashes.toArray(new String[listOfHashes.size()]));
 			restart();
+		}
+		
+		
+		
+		
+			
 
 	}
 	public static void BenchmarkHashRate()
