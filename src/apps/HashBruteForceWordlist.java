@@ -58,7 +58,7 @@ public class HashBruteForceWordlist
 				linesInWordlist++;
 				LinesPassed++;
 				word = fileReader.nextLine();
-				System.out.println(word);
+				//System.out.println(word);
 				
 				md.reset();
 				md.update(new String(word).getBytes());
