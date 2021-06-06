@@ -69,6 +69,7 @@ public class HashBruteForceWordlist
 				if(hash.equals(guess_hash))
 				{
 					done = true;
+					System.out.println(linesInWordlist + " words in wordlist");
 					break;
 				}
 			}
@@ -76,6 +77,7 @@ public class HashBruteForceWordlist
 			System.out.println("An error occurred.");
 		      e.printStackTrace();
 		}
+		
 		return new String(word);
 	}
 	
