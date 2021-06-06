@@ -54,11 +54,12 @@ public class HashBruteForceWordlist
 			
 			System.out.println(linesInWordlist + " words in wordlist");
 			
-			
+			System.out.println("Please press enter to continue:");
 			String takeabreak = inputScanner.nextLine();
-			
+			int LinesPassed = 0;
 			while(fileReader.hasNextLine())
 			{
+				LinesPassed++;
 				word = fileReader.nextLine();
 				System.out.println(word);
 				
@@ -70,6 +71,9 @@ public class HashBruteForceWordlist
 				{
 					done = true;
 					System.out.println(linesInWordlist + " words in wordlist");
+					System.out.println(LinesPassed + " words used");
+					int linesremaining = linesInWordlist - LinesPassed;
+					System.out.println(linesremaining + " words untested");
 					break;
 				}
 			}
