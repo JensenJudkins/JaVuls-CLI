@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class HashBruteForceWordlist
 {
+	static Scanner inputScanner = new Scanner(System.in);
 	static MessageDigest md;
 	
 	char min_char_value;
@@ -48,7 +49,14 @@ public class HashBruteForceWordlist
 			{
 				linesInWordlist++;
 			}
+			
+			
+			
 			System.out.println(linesInWordlist + " words in wordlist");
+			
+			
+			String takeabreak = inputScanner.nextLine();
+			
 			while(fileReader.hasNextLine())
 			{
 				word = fileReader.nextLine();
