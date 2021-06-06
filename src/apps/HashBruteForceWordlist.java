@@ -44,10 +44,11 @@ public class HashBruteForceWordlist
 		try {
 			File wordlistFile = new File(path);
 			Scanner fileReader = new Scanner(wordlistFile);
+			Scanner fileLineCounter = new Scanner(wordlistFile);
 			int linesInWordlist = 0;
-			while(fileReader.hasNextLine())
+			while(fileLineCounter.hasNextLine())
 			{
-				fileReader.nextLine();
+				fileLineCounter.nextLine();
 				linesInWordlist++;
 			}
 			
