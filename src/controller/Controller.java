@@ -2,7 +2,6 @@ package controller;
 
 import navigation.*;
 import readyForImplementation.WindowsReverseShell;
-import testApplications.HashBruteForceWordlist;
 
 import java.util.ArrayList;
 import java.util.List;

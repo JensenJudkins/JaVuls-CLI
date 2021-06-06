@@ -174,13 +174,7 @@ public class HashBruteForce
 	
 	
 	public static void main(String args[])
-	{
-		//System.out.println(args.length);
-		//for (int i = 0; args.length > i; i++)
-		//{
-		//	System.out.println(args[i]);
-		//}
-		
+	{	
 		int numOfHashes = Integer.parseInt(args[0]);
 		String typeOfHash = args[1];
 		if(numOfHashes > 0)
@@ -190,12 +184,11 @@ public class HashBruteForce
 				try
 				{
 					if(args[hashedInput].equals("")) {
-						//System.out.println("Argument "+ (h) + " is blank, skipping");
+						System.out.println("Argument "+ (args[hashedInput]) + " is blank, skipping");
 						hashedInput++;
 					}
 					int numberOfArgs = args.length;
 					int startingNumForQueryOfSettings = numberOfArgs - 7;
-					//System.out.print(startingNumForQuery +" number of args " +numberOfArgs);
 					for(int k=startingNumForQueryOfSettings-1; k < startingNumForQueryOfSettings; k++)
 					{
 						if (args[k].equals(""))
@@ -203,14 +196,17 @@ public class HashBruteForce
 							args[startingNumForQueryOfSettings] = "n";
 						}
 					}
-					//System.out.println(args[1]+args[startingNumForQuery+1]+ args[startingNumForQuery+2]+ args[startingNumForQuery+3]+ args[startingNumForQuery+4]);
-					HashBruteForce bc = new HashBruteForce(args[1],args[startingNumForQueryOfSettings+1], args[startingNumForQueryOfSettings+2], args[startingNumForQueryOfSettings+3], args[startingNumForQueryOfSettings+4]);
+					
+					String lTest = args[startingNumForQueryOfSettings+1];
+					String uTest = args[startingNumForQueryOfSettings+2];
+					String nTest = args[startingNumForQueryOfSettings+3];
+					String sTest = args[startingNumForQueryOfSettings+4];
+					HashBruteForce bc = new HashBruteForce(typeOfHash,lTest,uTest,nTest,sTest );
 					long start;
 					long end;
 					String answer;
 				
 					start = System.nanoTime();
-					//System.out.println(args[startingNumForQuery+6]);
 					if(args[startingNumForQueryOfSettings+6].equals("y"))
 					{
 						answer = bc.crackBG(args[hashedInput+1], args[1]);
@@ -225,7 +221,6 @@ public class HashBruteForce
 					
 					if(args[startingNumForQueryOfSettings+6].equals("y"))
 						{
-						//System.out.println("Hashing algorythmn: "+ args[1]);
 						System.out.println("Processing Time: " + ((end - start)/1000000000)+" Seconds, " + ((end - start)/1000000)+" Milliseconds (10^-3 thousandth), " + ((end - start)/1000)+" Microseconds (10^-6 millienth), " + ((end - start)/1)+" Nanoseconds (10^-9 billienth)");
 						}
 					else {

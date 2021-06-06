@@ -1,12 +1,10 @@
-package testApplications;
+package apps;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
-
-import apps.HashBruteForce;
 
 
 public class HashBruteForceWordlist
@@ -45,6 +43,12 @@ public class HashBruteForceWordlist
 		try {
 			File wordlistFile = new File(path);
 			Scanner fileReader = new Scanner(wordlistFile);
+			int linesInWordlist = 0;
+			while(fileReader.hasNextLine())
+			{
+				linesInWordlist++;
+			}
+			System.out.println(linesInWordlist + " words in wordlist");
 			while(fileReader.hasNextLine())
 			{
 				word = fileReader.nextLine();
@@ -65,12 +69,6 @@ public class HashBruteForceWordlist
 		      e.printStackTrace();
 		}
 		return new String(word);
-		
-		
-		
-			
-		
-		
 	}
 	
 
@@ -109,7 +107,7 @@ public class HashBruteForceWordlist
 				try
 				{
 					if(args[hashedInput].equals("")) {
-						//System.out.println("Argument "+ (h) + " is blank, skipping");
+						System.out.println("Argument "+ (args[hashedInput]) + " is blank, skipping");
 						hashedInput++;
 					}
 					int numberOfArgs = args.length;
