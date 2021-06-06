@@ -45,7 +45,10 @@ public class HashBruteForceWordlist
 			File wordlistFile = new File(path);
 			Scanner fileReader = new Scanner(wordlistFile);
 			int linesInWordlist = 0;
-			
+			if(fileReader.hasNextLine())
+			{
+				linesInWordlist++;
+			}
 			
 			
 			System.out.println(linesInWordlist + " words in wordlist");
@@ -55,7 +58,7 @@ public class HashBruteForceWordlist
 			int LinesPassed = 0;
 			while(fileReader.hasNextLine())
 			{
-				linesInWordlist++;
+				
 				LinesPassed++;
 				word = fileReader.nextLine();
 				//System.out.println(word);
