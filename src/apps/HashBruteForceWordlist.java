@@ -66,14 +66,14 @@ public class HashBruteForceWordlist
 				md.reset();
 				md.update(new String(word).getBytes());
 				guess_hash = hashToString(md.digest());
-				//System.out.println(word);
+				System.out.println(word);
 				if(hash.equals(guess_hash))
 				{
-					done = true;
 					System.out.println(linesInWordlist + " words in wordlist");
 					System.out.println(LinesPassed + " words used");
 					int linesremaining = linesInWordlist - LinesPassed;
 					System.out.println(linesremaining + " words untested");
+					done = true;
 					break;
 				}
 			}
