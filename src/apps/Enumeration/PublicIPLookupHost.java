@@ -1,4 +1,4 @@
-package apps;
+package apps.Enumeration;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

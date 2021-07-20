@@ -1,4 +1,4 @@
-package apps;
+package apps.Enumeration;
 import java.net.InetSocketAddress;
     import java.net.Socket;
 import java.net.UnknownHostException;

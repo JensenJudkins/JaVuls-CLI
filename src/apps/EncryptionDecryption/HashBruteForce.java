@@ -1,4 +1,4 @@
-package apps;
+package apps.EncryptionDecryption;
 
 import java.security.MessageDigest;
 
