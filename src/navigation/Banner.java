@@ -8,9 +8,13 @@ public class Banner {
 		System.out.println("   dK .dMP dMP dMP  YMvAP' dMP.aMP dMP    dP .dMP ");  
         System.out.println("   VMMMP' dMP dMP    VP'   VMMMP' dMMMMMP VMMMP'  ");
         System.out.println("");
-        System.out.println("Created by thatsmellything");
+        System.out.println("Author: thatsmellything");
         System.out.println("GNU 3.0");
         System.out.println("USE AT YOUR OWN RISK, I TAKE NO RESPONSIBILITY FOR YOUR ACTIONS");
+        System.out.println("DONATIONS NOT NEEDED BUT GREATLY APPRECIATED!");
+        System.out.println("BTC Wallet: 17D3mPkiqf27g6viBNQ6AkXtTAqJxCtNqz");
+        System.out.println("ETH Wallet: 0x278394B563F48B011a1C6206E14D6Dd5eAc4542F");
+        System.out.println("Doge Wallet: D7jXSPieWv2LraodsQZtZQ9WVj4nfL57KE");
         System.out.println("");
         System.out.println("");
         System.out.println("");
