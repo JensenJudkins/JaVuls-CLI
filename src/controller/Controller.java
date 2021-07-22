@@ -16,12 +16,13 @@ import apps.*;
 import apps.EncryptionDecryption.EncryptDecryptFilesAES;
 import apps.EncryptionDecryption.HashBruteForce;
 import apps.EncryptionDecryption.HashBruteForceWordlist;
+import apps.Enumeration.LocalIPLookupHost;
 import apps.Enumeration.PortScanner;
 import apps.Enumeration.PublicIPLookupHost;
 import apps.ReverseShell.BindShell;
-import apps.ReverseShell.LinuxReverseShell;
 import apps.ReverseShell.ReverseShell;
-import apps.ReverseShell.WindowsReverseShell;
+import archive.LinuxReverseShell;
+import archive.WindowsReverseShell;
 
 import java.lang.Integer;
 import java.net.UnknownHostException;
@@ -85,43 +86,49 @@ public class Controller {
 			System.exit(0);
 		}
 		
-	//Now it is selecting the apps	
+	//SELECT APP SECTION
 		//public ip lookup
 		if( x == 1)
 		{
 			PublicIPLookup();
 		}
+		if( x == 2)
+		{
+			LocalIPLookup();
+		}
 		//Port Scanner
-		if(x ==2) {
+		if(x ==3) {
 			PortScanner();
 		}
 		//AES Encrypt
-		if(x == 3){
+		if(x == 4){
 			AESEncrypt();
 		}
 		//AES Decrypt
-		if(x == 4){
+		if(x == 5){
 			AESDecrypt();
 		}
 		//MD5 Brute Force
-		if(x == 5)
+		if(x == 6)
 		{
 			HashBruteForce();
 		}
-		if(x == 6)
+		if(x == 7)
 		{
 			BenchmarkHashRate();
 		}
-		if(x == 7)
+		//DDoS Attacks
+		if(x == 8)
 		{
 			SlowLoris();
 		}
-		if(x == 8)
+		//Server Mode
+		if(x == 9)
 		{
 			HTTPServer();
 		}
-		
-		if(x == 9)
+		//Reverse Shell
+		if(x == 10)
 		{
 			try {
 				CreateReverseTCPListener();
@@ -130,7 +137,7 @@ public class Controller {
 				e.printStackTrace();
 			}
 		}
-		if(x == 10)
+		if(x == 11)
 		{
 			try {
 				CreateReverseTCPConnection();
@@ -141,6 +148,13 @@ public class Controller {
 		}
 		
 	}
+	
+	
+	//APPLICATION STARTER SECTION
+	
+	
+	
+	
 	public static void PublicIPLookup() {
 		try {
 			PublicIPLookupHost.main(null);
@@ -151,6 +165,19 @@ public class Controller {
 			restart();
 		}
 	}
+	
+	public static void LocalIPLookup() {
+		
+			try {
+				LocalIPLookupHost.main(null);
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			restart();
+		
+	}
+	
 	public static void PortScanner() {
 		System.out.println("Input the IP you wish to scan (default is local host 127.0.0.1): ");
 		String ip = inputScanner.nextLine();

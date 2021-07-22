@@ -47,7 +47,7 @@ import java.util.ArrayList;
     	if(threadsAllowed==0)
     	{
     	final ExecutorService es = Executors.newFixedThreadPool(2800);
-    	String ip = YourIPLookup.viewMyIP();
+    	String ip = LocalIPLookupHost.viewMyIP();
         final int timeout = 200;
         final List<Future<ScanResult>> futures = new ArrayList<>();
         for (int port = 1; port <= 65535; port++) {
@@ -85,7 +85,7 @@ import java.util.ArrayList;
     	else
     	{
     		final ExecutorService es = Executors.newFixedThreadPool(threadsAllowed);
-        	String ip = YourIPLookup.viewMyIP();
+        	String ip = LocalIPLookupHost.viewMyIP();
             final int timeout = 200;
             final List<Future<ScanResult>> futures = new ArrayList<>();
             for (int port = 1; port <= 65535; port++) {

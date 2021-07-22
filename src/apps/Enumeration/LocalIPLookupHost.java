@@ -1,9 +1,9 @@
-package testApplications;
+package apps.Enumeration;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class YourIPLookup {
+public class LocalIPLookupHost {
 	
 	  
 	    public static String getLocalIP() throws UnknownHostException
@@ -38,10 +38,11 @@ public class YourIPLookup {
 	    }
 	    
 
-	    /*
+	    
 	    public static void main (String[] args) throws UnknownHostException {
 			getLocalIP();
+			controller.Controller.restart();
 		}
-		*/
+		
 	    
 }
