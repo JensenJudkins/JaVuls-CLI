@@ -289,7 +289,7 @@ public class Controller {
 		}
 		
 	}
-	
+
 	public static void SlowLoris() {
 		System.out.println("Please input the website/host");
 		String host = inputScanner.nextLine();
