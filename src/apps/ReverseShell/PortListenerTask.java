@@ -47,7 +47,7 @@ public class PortListenerTask implements Runnable {
 				}
 
 				disconnect();
-				Controller.restart();
+				
 
 			} catch (final IOException e) {
 				err("Error reading from client: " + e);
@@ -66,7 +66,7 @@ public class PortListenerTask implements Runnable {
 	private void disconnect() throws IOException {
 		log("Client disconnected");
 		this.client.close();
-		Controller.restart();
+		//Controller.restart();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class PortListenerTask implements Runnable {
 	 */
 	private void log(final String message) {
 		System.out.println("[" + this.port + "] " + message);
-		Controller.restart();
+		//Controller.restart();
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class PortListenerTask implements Runnable {
 	 */
 	private void err(final String message) {
 		System.err.println("[" + this.port + "] " + message);
-		Controller.restart();
+		//Controller.restart();
 	}
 
 }
