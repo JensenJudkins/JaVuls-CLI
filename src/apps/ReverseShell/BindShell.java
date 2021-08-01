@@ -37,8 +37,9 @@ public class BindShell {
      } else {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
+         controller.Controller.restart();
      }
-     controller.Controller.restart();
+     
      return detected;
      
  }
@@ -67,7 +68,7 @@ public class BindShell {
                  } else if (iname.equals("SOCKET")) {
                      this.error = true;
                      System.out.print("SOC_ERROR: Shell connection has been terminated\n\n");
-                     controller.Controller.restart();
+                     
                  }
              }
          } while (input.available() > 0);
@@ -134,7 +135,7 @@ public class BindShell {
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
              
              if (listener != null) { try { listener.close(); } catch (IOException ex) {} }
-             controller.Controller.restart();
+             
          }
      }
  }
