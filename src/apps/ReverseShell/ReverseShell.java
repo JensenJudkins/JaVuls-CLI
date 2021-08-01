@@ -123,7 +123,7 @@ public class ReverseShell {
              if (client != null) { try { client.close(); } catch (IOException ex) {} }
              
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
-             controller.Controller.restart();
+             
          }
      }
  }
