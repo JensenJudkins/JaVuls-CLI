@@ -155,16 +155,7 @@ public class BindShellModified {
 		
 
 	 
-     System.out.print("########################################################################\n");
-     System.out.print("#                                                                      #\n");
-     System.out.print("#                          Java Bind TCP v2.7                          #\n");
-     System.out.print("#                                   by Ivan Sincek                     #\n");
-     System.out.print("#                                                                      #\n");
-     System.out.print("# GitHub repository at github.com/ivan-sincek/java-reverse-tcp.        #\n");
-     System.out.print("# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.   #\n");
-     System.out.print("#                                                                      #\n");
-     System.out.print("########################################################################\n");
-     
+
          System.out.print("Input port: ");
          String port = inputScanner.nextLine();
          int x = catchIntException(port);

@@ -1,6 +1,6 @@
 package apps.ReverseShell;
 
-//Copyright (c) 2021 Ivan Šincek
+
 //Requires Java SE v8 or greater and JDK v8 or greater.
 //Works on Linux OS, macOS, and Windows OS.
 
@@ -144,17 +144,8 @@ public class ReverseShellModified {
 static Scanner inputScanner = new Scanner(System.in);
  
  public static void main(String[] args) {
-     System.out.print("#######################################################################\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("#                        Java Reverse TCP v2.7                        #\n");
-     System.out.print("#                                    by Ivan Sincek                   #\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("# GitHub repository at github.com/ivan-sincek/java-reverse-tcp.       #\n");
-     System.out.print("# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.  #\n");
-     System.out.print("#                                                                     #\n");
-     System.out.print("#######################################################################\n");
-    
-         System.out.print("Input ip address then port");
+
+   
          System.out.print("Input port: ");
          String portNum = inputScanner.nextLine();
          int x = catchIntException(portNum);
