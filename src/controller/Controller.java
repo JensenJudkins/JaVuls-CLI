@@ -19,8 +19,10 @@ import apps.EncryptionDecryption.HashBruteForceWordlist;
 import apps.Enumeration.LocalIPLookupHost;
 import apps.Enumeration.PortScanner;
 import apps.Enumeration.PublicIPLookupHost;
-import apps.ReverseShell.BindShell;
-import apps.ReverseShell.ReverseShell;
+import apps.ReverseShell.BindShellModified;
+import apps.ReverseShell.ReverseShellModified;
+import apps.ReverseShell.originals.BindShellBroken;
+import apps.ReverseShell.originals.ReverseShellBroken;
 import archive.LinuxReverseShell;
 import archive.WindowsReverseShell;
 
@@ -627,24 +629,19 @@ public class Controller {
 		
 	}
 	public static void CreateReverseTCPListener() {
-		System.out.println("Please input the port you want to listen on: ");
-		String port = inputScanner.nextLine();
+		
 		
 		List<String> listOfArgs = new ArrayList<String>();
-		listOfArgs.add(port);
-		BindShell.main(listOfArgs.toArray(new String[listOfArgs.size()]));
+		
+		BindShellModified.main(listOfArgs.toArray(new String[listOfArgs.size()]));
 		
 	}
 	public static void CreateReverseTCPConnection() {
-		System.out.println("Please input the IP address of listening device: ");
-		String ip = inputScanner.nextLine();
-		System.out.println("Please input the listening port: ");
-		String port = inputScanner.nextLine();
+		
 		
 		List<String> listOfArgs = new ArrayList<String>();
-		listOfArgs.add(ip);
-		listOfArgs.add(port);
-		ReverseShell.main(listOfArgs.toArray(new String[listOfArgs.size()]));
+		
+		ReverseShellModified.main(listOfArgs.toArray(new String[listOfArgs.size()]));
 		
 	}
 	

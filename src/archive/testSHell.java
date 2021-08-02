@@ -3,7 +3,7 @@ package archive;
 import java.util.ArrayList;
 import java.util.List;
 
-import apps.ReverseShell.ReverseShell;
+import apps.ReverseShell.originals.ReverseShellBroken;
 
 
 
@@ -15,7 +15,7 @@ public class testSHell {
 		List<String> listOfArgs = new ArrayList<String>();
 		listOfArgs.add(ip);
 		listOfArgs.add(port);
-		ReverseShell.main(listOfArgs.toArray(new String[listOfArgs.size()]));
+		ReverseShellBroken.main(listOfArgs.toArray(new String[listOfArgs.size()]));
 		controller.Controller.restart();
 	}
 
