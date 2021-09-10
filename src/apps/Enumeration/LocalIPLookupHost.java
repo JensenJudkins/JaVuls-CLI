@@ -41,7 +41,12 @@ public class LocalIPLookupHost {
 	    
 	    public static void main (String[] args) throws UnknownHostException {
 			getLocalIP();
-			controller.Controller.restart();
+			try {
+				controller.Controller.restart();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	    

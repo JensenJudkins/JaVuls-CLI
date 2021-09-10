@@ -16,7 +16,12 @@ public class testSHell {
 		listOfArgs.add(ip);
 		listOfArgs.add(port);
 		ReverseShellBroken.main(listOfArgs.toArray(new String[listOfArgs.size()]));
-		controller.Controller.restart();
+		try {
+			controller.Controller.restart();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

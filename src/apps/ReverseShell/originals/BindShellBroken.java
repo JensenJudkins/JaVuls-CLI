@@ -37,7 +37,12 @@ public class BindShellBroken {
      } else {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
-         controller.Controller.restart();
+         try {
+			controller.Controller.restart();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
      }
      
      return detected;
@@ -75,7 +80,12 @@ public class BindShellBroken {
      } catch (SocketTimeoutException ex) {} catch (IOException ex) {
          this.error = true;
          System.out.print(String.format("STRM_ERROR: Cannot read from %s or write to %s, program will now exit...\n\n", iname, oname));
-         controller.Controller.restart();
+         try {
+			controller.Controller.restart();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
      }
  }
  

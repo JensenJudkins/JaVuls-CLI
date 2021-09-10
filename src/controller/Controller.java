@@ -100,7 +100,12 @@ public class Controller {
 		}
 		//Port Scanner
 		if(x ==3) {
-			PortScanner();
+			try {
+				PortScanner();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		//AES Encrypt
 		if(x == 4){
@@ -180,11 +185,21 @@ public class Controller {
 		
 	}
 	
-	public static void PortScanner() {
+	public static void PortScanner() throws IOException {
 		System.out.println("Input the IP you wish to scan (default is local host 127.0.0.1): ");
 		String ip = inputScanner.nextLine();
 		System.out.println("Input number of threads for port scan (default is 0 which is the fastest): ");
 		String threads = inputScanner.nextLine();
+		System.out.println("Verbose mode? (Shows most likely services for open ports, default is no) [y]: ");
+		String setverbose = inputScanner.nextLine();
+		boolean verbose = false;
+		if(setverbose.equals("y") || setverbose.equals("Y"))
+		{
+			verbose = true;
+		}
+		else {
+			verbose = false;
+		}
 		if(threads.equals(""))
 		{
 			threads = "0";
@@ -193,7 +208,7 @@ public class Controller {
 		if(ip.equals("")) {
 			try {
 				System.out.println("Scanning local host 127.0.0.1 with " + threads+ " threads");
-				PortScanner.localPortScan(threads);
+				PortScanner.localPortScan(threads, verbose);
 				restart();
 			} catch (UnknownHostException | InterruptedException | ExecutionException e) {
 				// TODO Auto-generated catch block
@@ -204,7 +219,7 @@ public class Controller {
 		
 		try {
 			System.out.println("Scanning "+ip+" with " + threads+ " threads");
-			PortScanner.foreignPortScan(ip, threads);
+			PortScanner.foreignPortScan(ip, threads, verbose);
 			restart();
 		} catch (UnknownHostException | InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block

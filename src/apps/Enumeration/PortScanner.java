@@ -1,4 +1,5 @@
 package apps.Enumeration;
+import java.io.IOException;
 import java.net.InetSocketAddress;
     import java.net.Socket;
 import java.net.UnknownHostException;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
     }
     */
     
-    public static String localPortScan(String threads) throws UnknownHostException, InterruptedException, ExecutionException
+    public static String localPortScan(String threads, boolean verbose) throws InterruptedException, ExecutionException, IOException
     {
     	int threadsAllowed = Integer.parseInt(threads);
     	
@@ -66,12 +67,20 @@ import java.util.ArrayList;
                 int theePort = f.get().getPort();
                 String print = String.valueOf(theePort);
                 openPortsToPrint.add(print);
+                if(verbose)
+                {
+                String listServices = Grep.sendmethestuff(print);
+                //System.out.println("Most likely services running");
+                System.out.println(listServices);
+                }
             }
         }
         
         String r = openPortsToPrint.toString();
         System.out.println("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
         + timeout + "ms)");
+
+        
         
         
         String openPortsOnLocal = "There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
@@ -104,12 +113,19 @@ import java.util.ArrayList;
                     int theePort = f.get().getPort();
                     String print = String.valueOf(theePort);
                     openPortsToPrint.add(print);
+                    if(verbose)
+                    {
+                    String listServices = Grep.sendmethestuff(print);
+                    //System.out.println("Most likely services running");
+                    System.out.println(listServices);
+                    }
                 }
             }
             
             String r = openPortsToPrint.toString();
             System.out.println("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
             + timeout + "ms)");
+
             
             
             String openPortsOnLocal = "There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
@@ -125,7 +141,7 @@ import java.util.ArrayList;
         
     }
     
-    public static String foreignPortScan(String ipOfSearch, String threads) throws UnknownHostException, InterruptedException, ExecutionException
+    public static String foreignPortScan(String ipOfSearch, String threads, boolean verbose) throws InterruptedException, ExecutionException, IOException
     {
     	
     	
@@ -156,7 +172,12 @@ import java.util.ArrayList;
                 int theePort = f.get().getPort();
                 String print = String.valueOf(theePort);
                 openPortsToPrint.add(print);
-                
+                if(verbose)
+                {
+                String listServices = Grep.sendmethestuff(print);
+                //System.out.println("Most likely services running");
+                System.out.println(listServices);
+                }
                
                 
                 
@@ -167,7 +188,7 @@ import java.util.ArrayList;
         String r = openPortsToPrint.toString();
         System.out.println("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
         + timeout + "ms)");
-        
+
         
         String openPortsOnLocal = "There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
                 + timeout + "ms) OPEN PORTS: " + r;
@@ -199,7 +220,12 @@ import java.util.ArrayList;
                     int theePort = f.get().getPort();
                     String print = String.valueOf(theePort);
                     openPortsToPrint.add(print);
-                    
+                    if(verbose)
+                    {
+                    String listServices = Grep.sendmethestuff(print);
+                    //System.out.println("Most likely services running");
+                    System.out.println(listServices);
+                    }
                    
                     
                     
@@ -210,6 +236,8 @@ import java.util.ArrayList;
             String r = openPortsToPrint.toString();
             System.out.println("There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
             + timeout + "ms)");
+            
+            
             
             
             String openPortsOnLocal = "There are " + openPorts + " open ports on host " + ip + " (probed with a timeout of "
