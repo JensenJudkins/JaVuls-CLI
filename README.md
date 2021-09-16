@@ -5,13 +5,14 @@ JaVuls but in CLI format
 - Tested and working on openjdk 11.0.9.1
 - Navigate to directory and use "java -jar JaVuls-CLI.jar" to run the program
 - Options and usage will vary from tool to tool but defaults will be displayed
+- Some tools will require sudo priviledges (installs dependencies, or is required for functionality)
 
 #Current Tools
 BE AWARE THAT THIS IS STILL A WORK IN PROGRESS, MOST TOOLS ARE STILL BEING TRANSFERED FROM JaVuls. THIS IS NOT YET A FINISHED PRODUCT, JaVuls is more complete.
 
 IP Scanner
 
-Port Scanner
+Port Scanner (multithreaded)
 
 Public IP Checker
 
@@ -21,7 +22,13 @@ HTTP Server
 
 AES Encryption/Decryption
 
-MD5 Brute Force
+Multiple hash bruteforcing
+
+Reverse TCP Handler (In development)
+
+Reverse TCP Connector
+
+Easy Monitor mode setup
 
 # CREDITS
 This project was not done alone. Many of the applications have been borrowed and culminated into this singular project. All of them before hand were not in GUI form and have gone through some alterations to work within this project. Credit is where credit is due and I will add contributers here along with their githgub projet if available! Thank you so much it would not be posssible without you! :)
