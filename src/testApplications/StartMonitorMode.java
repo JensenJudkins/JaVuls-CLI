@@ -27,7 +27,10 @@ public class StartMonitorMode {
   try {
       if(interfaceToChange.equals(""))
       {
-          interfaceToChange = "wlan0";
+        Scanner inputScanner = new Scanner(System.in);
+        System.out.println("Please input the interface to set to monitor mode");
+        //String input = inputScanner.nextLine();
+        interfaceToChange = inputScanner.nextLine();
       }
    String[] cmd = { "sh", pathToScript, interfaceToChange};
    p = Runtime.getRuntime().exec(cmd); 

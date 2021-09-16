@@ -1,6 +1,7 @@
 package controller;
 
 import navigation.*;
+import testApplications.StartMonitorMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -153,6 +154,10 @@ public class Controller {
 				e.printStackTrace();
 			}
 		}
+		if(x == 12)
+		{
+			StartMonitorMode();
+		}
 		
 	}
 	
@@ -160,7 +165,14 @@ public class Controller {
 	//APPLICATION STARTER SECTION
 	
 	
-	
+	public static void StartMonitorMode()
+	{
+		Scanner inputScanner = new Scanner(System.in);
+        System.out.println("Please input the interface to set to monitor mode");
+        //String input = inputScanner.nextLine();
+        String interfaceToChange = inputScanner.nextLine();
+		StartMonitorMode.StartMonMode(interfaceToChange);
+	}
 	
 	public static void PublicIPLookup() {
 		try {
