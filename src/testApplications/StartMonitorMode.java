@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import controller.Controller;
+
 public class StartMonitorMode {
     public static String pathToScript = new File("MonitorModeScript.sh").getAbsolutePath();
  public static void main(String[] args) {
@@ -48,5 +50,6 @@ public class StartMonitorMode {
    // TODO Auto-generated catch block
    e.printStackTrace();
   }
+  Controller.restart();
  }
 }
