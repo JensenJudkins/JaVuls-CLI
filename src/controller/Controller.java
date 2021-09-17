@@ -1,6 +1,7 @@
 package controller;
 
 import navigation.*;
+import testApplications.DDoS;
 import testApplications.StartMonitorMode;
 
 import java.util.ArrayList;
@@ -158,12 +159,27 @@ public class Controller {
 		{
 			StartMonitorMode();
 		}
+		if(x == 13)
+		{
+			StartDDoS();
+		}
 		
 	}
 	
 	
 	//APPLICATION STARTER SECTION
-	
+	public static void StartDDoS(){
+		System.out.println("Please input the victim site (ex. http://google.com): ");
+		String victim = inputScanner.nextLine();
+		System.out.println("Please input the amount of threads you wish to use: ");
+		int threads = Integer.parseInt((inputScanner.nextLine()));
+		try {
+			DDoS.DDoSSite(victim, threads);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public static void StartMonitorMode()
 	{

