@@ -108,7 +108,7 @@ public class NMAPVulnScanner {
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
@@ -119,7 +119,7 @@ public class NMAPVulnScanner {
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
@@ -132,7 +132,7 @@ public class NMAPVulnScanner {
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
