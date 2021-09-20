@@ -17,6 +17,7 @@ public class HashBruteForce
 	
 	public HashBruteForce(String hashType, String l, String u, String n, String s) throws Exception
 	{
+		max_num_chars = 10;
 		if(!l.contentEquals("none"))
 		{
 			min_char_value = 97;
@@ -60,7 +61,7 @@ public class HashBruteForce
 		
 		
 		
-		max_num_chars = 10;
+	
 		
 		md = MessageDigest.getInstance(hashType);
 		//TimeUnit.SECONDS.sleep(30);
