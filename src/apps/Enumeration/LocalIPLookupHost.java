@@ -1,5 +1,6 @@
 package apps.Enumeration;
 
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -22,6 +23,14 @@ public class LocalIPLookupHost {
 	        //return inetAddress.toString();
 	        return ipAddress;
 	    }
+
+		private static String getLocalSubnet() throws UnknownHostException
+		{
+			InetAddress localsubnet = InetAddress.getLocalHost();
+			
+			//Insert method to delete right to left until you hit the first . char then append a 1/24 then return it for the arp scanner/device discovery tools
+			return localsubnet.toString();
+		}
 	    
 	    
 	    
