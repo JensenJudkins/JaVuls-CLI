@@ -21,16 +21,17 @@ public class MainMenu {
     	System.out.println("1) List (your) Public IP");
     	System.out.println("2) List (your) Local IP");
     	System.out.println("3) Port Scanner");
-    	System.out.println("4) Encrypt file with AES");
-    	System.out.println("5) Decrypt AES file");
-    	System.out.println("6) Hash Brute Force Cracker");
-    	System.out.println("7) Hash Brute Force Benchmark");
-    	System.out.println("8) Slow Loris Attack");
-    	System.out.println("9) HTTP Server");
-    	System.out.println("10) Reverse TCP Handler (User)");
-    	System.out.println("11) Reverse TCP Connector (Victim)");
-    	System.out.println("12) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
-    	System.out.println("13) DDoS Attack");
+		System.out.println("4) NMAP Vulners Scan (requires root)");
+    	System.out.println("5) Encrypt file with AES");
+    	System.out.println("6) Decrypt AES file");
+    	System.out.println("7) Hash Brute Force Cracker");
+    	System.out.println("8) Hash Brute Force Benchmark");
+    	System.out.println("9) Slow Loris Attack");
+    	System.out.println("10) HTTP Server");
+    	System.out.println("11) Reverse TCP Handler (User)");
+    	System.out.println("12) Reverse TCP Connector (Victim)");
+    	System.out.println("13) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
+    	System.out.println("14) DDoS Attack");
     	
     	
     	
@@ -46,16 +47,17 @@ public class MainMenu {
     	System.out.println("1) List (your) Public IP");
     	System.out.println("2) List (your) Local IP");
     	System.out.println("3) Port Scanner");
-    	System.out.println("4) Encrypt file with AES");
-    	System.out.println("5) Decrypt AES file");
-    	System.out.println("6) Hash Brute Force Cracker");
-    	System.out.println("7) Hash Brute Force Benchmark");
-    	System.out.println("8) Slow Loris Attack");
-    	System.out.println("9) HTTP Server");
-    	System.out.println("10) Reverse TCP Handler (User)");
-    	System.out.println("11) Reverse TCP Connector (Victim)");
-    	System.out.println("12) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
-		System.out.println("13) DDoS Attack");
+		System.out.println("4) NMAP Vulners Scan (requires root)");
+    	System.out.println("5) Encrypt file with AES");
+    	System.out.println("6) Decrypt AES file");
+    	System.out.println("7) Hash Brute Force Cracker");
+    	System.out.println("8) Hash Brute Force Benchmark");
+    	System.out.println("9) Slow Loris Attack");
+    	System.out.println("10) HTTP Server");
+    	System.out.println("11) Reverse TCP Handler (User)");
+    	System.out.println("12) Reverse TCP Connector (Victim)");
+    	System.out.println("13) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
+    	System.out.println("14) DDoS Attack");
     	
     	
     	

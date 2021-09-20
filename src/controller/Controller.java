@@ -2,6 +2,7 @@ package controller;
 
 import navigation.*;
 import testApplications.DDoS;
+import testApplications.NMAPVulnScanner;
 import testApplications.StartMonitorMode;
 
 import java.util.ArrayList;
@@ -109,35 +110,40 @@ public class Controller {
 				e.printStackTrace();
 			}
 		}
-		//AES Encrypt
 		if(x == 4){
+			System.out.println("Please input IP to scan: ");
+			String IP = inputScanner.nextLine();
+			NMAPVulnScanner.NMAPVulnersScan(IP);
+		}
+		//AES Encrypt
+		if(x == 5){
 			AESEncrypt();
 		}
 		//AES Decrypt
-		if(x == 5){
+		if(x == 6){
 			AESDecrypt();
 		}
 		//MD5 Brute Force
-		if(x == 6)
+		if(x == 7)
 		{
 			HashBruteForce();
 		}
-		if(x == 7)
+		if(x == 8)
 		{
 			BenchmarkHashRate();
 		}
 		//DDoS Attacks
-		if(x == 8)
+		if(x == 9)
 		{
 			SlowLoris();
 		}
 		//Server Mode
-		if(x == 9)
+		if(x == 10)
 		{
 			HTTPServer();
 		}
 		//Reverse Shell
-		if(x == 10)
+		if(x == 11)
 		{
 			try {
 				CreateReverseTCPListener();
@@ -146,7 +152,7 @@ public class Controller {
 				e.printStackTrace();
 			}
 		}
-		if(x == 11)
+		if(x == 12)
 		{
 			try {
 				CreateReverseTCPConnection();
@@ -155,11 +161,11 @@ public class Controller {
 				e.printStackTrace();
 			}
 		}
-		if(x == 12)
+		if(x == 13)
 		{
 			StartMonitorMode();
 		}
-		if(x == 13)
+		if(x == 14)
 		{
 			StartDDoS();
 		}
