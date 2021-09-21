@@ -47,7 +47,7 @@ public class MainMenu {
     	System.out.println("1) List (your) Public IP");
     	System.out.println("2) List (your) Local IP");
     	System.out.println("3) Port Scanner");
-		System.out.println("4) NMAP Vulners Scan (requires root)");
+		System.out.println("4) NMAP Vulners Scan (SUDO REQUIREMENT, Linux Only)");
     	System.out.println("5) Encrypt file with AES");
     	System.out.println("6) Decrypt AES file");
     	System.out.println("7) Hash Brute Force Cracker");
