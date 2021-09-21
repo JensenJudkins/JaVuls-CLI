@@ -107,8 +107,9 @@ public class Controller {
 			try {
 				PortScanner();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Port scanner failed :(");
 				e.printStackTrace();
+				restart();
 			}
 		}
 		if(x == 4){
@@ -149,8 +150,9 @@ public class Controller {
 			try {
 				CreateReverseTCPListener();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				System.out.println("Creating the reverse shell listener failed :(");
 				e.printStackTrace();
+				restart();
 			}
 		}
 		if(x == 12)
@@ -158,8 +160,9 @@ public class Controller {
 			try {
 				CreateReverseTCPConnection();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				System.out.println("Creating the reverse connection failed :(");
 				e.printStackTrace();
+				restart();
 			}
 		}
 		if(x == 13)
@@ -187,8 +190,9 @@ public class Controller {
 		try {
 			DDoS.DDoSSite(victim, threads);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.out.println("Creating DDoS failed :(");
 			e.printStackTrace();
+			restart();
 		}
 	}
 	public static void StartNetworkHostDiscovery()
@@ -210,7 +214,7 @@ public class Controller {
 			PublicIPLookupHost.main(null);
 			restart();
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Failed to look up public IP :(");
 			e.printStackTrace();
 			restart();
 		}
@@ -221,8 +225,9 @@ public class Controller {
 			try {
 				LocalIPLookupHost.main(null);
 			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Failed to look up local IP :(");
 				e.printStackTrace();
+				
 			}
 			restart();
 		
@@ -254,7 +259,7 @@ public class Controller {
 				PortScanner.localPortScan(threads, verbose);
 				restart();
 			} catch (UnknownHostException | InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Something went very wrong :(");
 				e.printStackTrace();
 				restart();
 			}
@@ -265,7 +270,7 @@ public class Controller {
 			PortScanner.foreignPortScan(ip, threads, verbose);
 			restart();
 		} catch (UnknownHostException | InterruptedException | ExecutionException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Something went very wrong :(");
 			e.printStackTrace();
 			restart();
 		}
@@ -303,7 +308,7 @@ public class Controller {
 			restart();
 		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
 				| BadPaddingException | IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Something went very wrong :(");
 			e.printStackTrace();
 			System.out.println("Encryption failed, this is so sad");
 			restart();
@@ -342,7 +347,7 @@ public class Controller {
 			restart();
 		} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
 				| BadPaddingException | IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Something went very wrong :(");
 			e.printStackTrace();
 			System.out.println("Decryption failed, this is so sad");
 			restart();
