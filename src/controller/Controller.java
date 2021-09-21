@@ -2,6 +2,7 @@ package controller;
 
 import navigation.*;
 import testApplications.DDoS;
+import testApplications.NMAPDeviceDiscovery;
 import testApplications.NMAPVulnScanner;
 import testApplications.StartMonitorMode;
 
@@ -169,6 +170,10 @@ public class Controller {
 		{
 			StartDDoS();
 		}
+		if(x == 15)
+		{
+			StartNetworkHostDiscovery();
+		}
 		
 	}
 	
@@ -185,6 +190,10 @@ public class Controller {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public static void StartNetworkHostDiscovery()
+	{
+		NMAPDeviceDiscovery.NMAPNetworkHostDiscovery();
 	}
 	
 	public static void StartMonitorMode()

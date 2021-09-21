@@ -32,6 +32,7 @@ public class MainMenu {
     	System.out.println("12) Reverse TCP Connector (Victim)");
     	System.out.println("13) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
     	System.out.println("14) DDoS Attack");
+		System.out.println("14) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
     	
     	
     	
@@ -58,6 +59,7 @@ public class MainMenu {
     	System.out.println("12) Reverse TCP Connector (Victim)");
     	System.out.println("13) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
     	System.out.println("14) DDoS Attack");
+		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
     	
     	
     	
