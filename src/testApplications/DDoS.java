@@ -1,9 +1,7 @@
 package testApplications;
 
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.net.http.HttpClient;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DDoS { 

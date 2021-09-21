@@ -202,11 +202,12 @@ public class Controller {
 	
 	public static void StartMonitorMode()
 	{
-		Scanner inputScanner = new Scanner(System.in);
+		Scanner inputScannerMonMode = new Scanner(System.in);
         System.out.println("Please input the interface to set to monitor mode");
         //String input = inputScanner.nextLine();
-        String interfaceToChange = inputScanner.nextLine();
+        String interfaceToChange = inputScannerMonMode.nextLine();
 		StartMonitorMode.StartMonMode(interfaceToChange);
+		inputScannerMonMode.close();
 	}
 	
 	public static void PublicIPLookup() {
@@ -377,14 +378,15 @@ public class Controller {
 		
 		Thread httpServerThread = new Thread(){
 		    public void run(){
-		    	Scanner inputScanner = new Scanner(System.in);
+		    	Scanner inputScannerHTTPServer = new Scanner(System.in);
 		    	System.out.println("To shut down the http server you must run this command again and fill in the inputs with viable options");
 				System.out.println("Please input the root directory of the HTTP server");
-				String dir = inputScanner.nextLine();
+				String dir = inputScannerHTTPServer.nextLine();
 				System.out.println("Please input the port number to listen on");
-				String port = inputScanner.nextLine();
+				String port = inputScannerHTTPServer.nextLine();
 				System.out.println("Starting server");
 				apps.HTTPServer.startServerUpInGUI(dir, port);
+				inputScannerHTTPServer.close();
 				Controller.restart();
 		    }
 		};
@@ -548,7 +550,7 @@ public class Controller {
 		System.out.println("");
 		List<String> listOfHashes = new ArrayList<String>();
 		String numOfHashes = "1";
-		int numohash = Integer.parseInt(numOfHashes);
+		//int numohash = Integer.parseInt(numOfHashes);
 		listOfHashes.add(numOfHashes);
 		String typeOfHash = "MD2";
 		listOfHashes.add(typeOfHash);

@@ -1,6 +1,6 @@
 package apps.ReverseShell.originals;
 
-//Copyright (c) 2021 Ivan Šincek
+//Copyright (c) 2021 Ivan ï¿½incek
 //Requires Java SE v8 or greater and JDK v8 or greater.
 //Works on Linux OS, macOS, and Windows OS.
 
@@ -12,7 +12,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class BindShell {
  

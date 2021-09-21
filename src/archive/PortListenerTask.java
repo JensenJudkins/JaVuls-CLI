@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import controller.Controller;
-
 /**
  * Listen on a port and print whatever it receives
  */

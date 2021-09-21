@@ -54,8 +54,9 @@ public class NMAPDeviceDiscovery {
                     p.destroy();
                 } catch (Exception e) {}
                 } catch (UnknownHostException e1) {
-                    // TODO Auto-generated catch block
+                    System.out.println("Something broke dude :(");
                     e1.printStackTrace();
+                    Controller.restart();
                 }
 
 		}
@@ -117,8 +118,9 @@ public class NMAPDeviceDiscovery {
                     p.destroy();
                 } catch (Exception e) {}
                 } catch (UnknownHostException e1) {
-                    // TODO Auto-generated catch block
+                    System.out.println("Something broke dude :(");
                     e1.printStackTrace();
+                    Controller.restart();
                 }
 
     

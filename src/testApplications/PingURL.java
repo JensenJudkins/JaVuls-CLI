@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
+import controller.Controller;
+
 public class PingURL {
 
 	public static String PingURL(String url) throws UnknownHostException, MalformedURLException
@@ -39,17 +41,18 @@ public class PingURL {
 
     } catch (MalformedURLException e) {
 
-        // TODO Auto-generated catch block
+        System.out.println("Malformed URL, dont work cuh :(");
     	
-       // e.printStackTrace();
+       e.printStackTrace();
+       Controller.restart();
         return "Connection has failed to " + url + "\n" + "MalformedURLException Error";
-
+        
     } catch (IOException e) {
 
-        // TODO Auto-generated catch block
+        System.out.println("IOException broski :(");
 
-       // e.printStackTrace();
-        
+       e.printStackTrace();
+       Controller.restart();
         return "Connection has failed to " + url + "\n" + "IOException Error";
 
     } finally {

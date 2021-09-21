@@ -63,9 +63,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.net.http.HttpResponse.ResponseInfo;
 import java.util.HashMap;
 import java.util.Map;
+
+import controller.Controller;
 
 public class HttpUtil {
 	/**
@@ -80,8 +81,9 @@ public class HttpUtil {
         try {
             get(url);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            System.out.println("Getting the URL failed my mans :(");
             e.printStackTrace();
+			Controller.restart();
         }
     }
 

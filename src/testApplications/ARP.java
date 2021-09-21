@@ -57,6 +57,7 @@ import java.io.*;
                      dma.put(key,value);
                  }
              }
+             input.close();
          }
          catch(Exception exception) {
              System.err.println(exception);
@@ -80,6 +81,7 @@ import java.io.*;
                      dmb.put(key,value);
                  }
              }
+             input.close();
          }
          catch(Exception exception) {
              System.err.println(exception);

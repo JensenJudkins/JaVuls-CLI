@@ -44,11 +44,13 @@ public class StartMonitorMode {
     System.out.println(line);
    } 
   } catch (IOException e) {
-   // TODO Auto-generated catch block
+   System.out.println("IOException sorry mans :(");
    e.printStackTrace();
+   Controller.restart();
   } catch (InterruptedException e) {
-   // TODO Auto-generated catch block
+   System.out.println("InterruptionException sorry dood :(");
    e.printStackTrace();
+   Controller.restart();
   }
   Controller.restart();
  }
