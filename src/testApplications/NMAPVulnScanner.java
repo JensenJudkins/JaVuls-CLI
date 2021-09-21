@@ -114,16 +114,7 @@ public class NMAPVulnScanner {
 				p.destroy();
 			} catch (Exception e) {}
 			
-            try {
-				p = Runtime.getRuntime().exec("git clone https://github.com/vulnersCom/nmap-vulners.git");
-				BufferedReader br = new BufferedReader(
-					new InputStreamReader(p.getInputStream()));
-				while ((s = br.readLine()) != null)
-					System.out.println(s);
-				p.waitFor();
-				System.out.println ("exit: " + p.exitValue());
-				p.destroy();
-			} catch (Exception e) {}
+            
 
             //RUN SCRIPT
             System.out.println("Running actual script");
@@ -140,19 +131,7 @@ public class NMAPVulnScanner {
 
 
 
-			//Remove vulners
-            try {
-				p = Runtime.getRuntime().exec("sudo rm -rf nmap-vulners/");
-				BufferedReader br = new BufferedReader(
-					new InputStreamReader(p.getInputStream()));
-				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
-				p.waitFor();
-				System.out.println ("exit: " + p.exitValue());
-				p.destroy();
-			} catch (Exception e) {}
 			Controller.restart();
-            
 		}
     }
 
