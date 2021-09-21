@@ -22,6 +22,7 @@ public class StartMonitorMode {
           interfaceToChange = "wlan0";
       }
      StartMonMode(interfaceToChange);
+     inputScanner.close();
  }
  public static void StartMonMode(String interfaceToChange)
  {
