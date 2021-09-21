@@ -1869,7 +1869,7 @@ public class HTTPServer {
         public void run() {
             setName(getClass().getSimpleName() + "-" + port);
             try {
-                ServerSocket serv = HTTPServer.this.serv; // keep local to avoid NPE when stopped
+                ServerSocket serv = HTTPServer.serv; // keep local to avoid NPE when stopped
                 while (serv != null && !serv.isClosed()) {
                     final Socket sock = serv.accept();
                     executor.execute(new Runnable() {
@@ -3053,7 +3053,9 @@ public class HTTPServer {
             } catch (URISyntaxException ignore) {}
         }
         f.format("</pre></body></html>");
+        f.close();
         return f.toString();
+        
     }
 
     /**

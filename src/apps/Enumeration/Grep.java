@@ -59,6 +59,7 @@ public class Grep
         matches++;
       }
     }
+    scan.close();
     return matchString;
     
     //System.out.println( lines + " lines, " + matches + " matches" );

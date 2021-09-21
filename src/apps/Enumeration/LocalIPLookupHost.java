@@ -1,8 +1,10 @@
 package apps.Enumeration;
 
-import java.net.Inet4Address;
+//import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+
+import controller.Controller;
 
 public class LocalIPLookupHost {
 	
@@ -26,10 +28,23 @@ public class LocalIPLookupHost {
 
 		private static String getLocalSubnet() throws UnknownHostException
 		{
-			InetAddress localsubnet = InetAddress.getLocalHost();
+			//InetAddress localsubnet = InetAddress.getLocalHost();
+
+			String yourIp = LocalIPLookupHost.viewMyIP().toString();
+
+                
+                String[] seperated = yourIp.split("\\.");
+                System.out.println(seperated[0]);
+                System.out.println(seperated[1]);
+                System.out.println(seperated[2]);
+                System.out.println(seperated[3]);
+				String localsubnet = seperated[0] + "." + seperated[1] + "." + seperated[2] + ".0/24";
+
+
+
 			
 			//Insert method to delete right to left until you hit the first . char then append a 1/24 then return it for the arp scanner/device discovery tools
-			return localsubnet.toString();
+			return localsubnet;
 		}
 	    
 	    
@@ -50,12 +65,11 @@ public class LocalIPLookupHost {
 	    
 	    public static void main (String[] args) throws UnknownHostException {
 			getLocalIP();
-			try {
-				controller.Controller.restart();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			getIpAddress(null);
+			getLocalSubnet();
+
+			Controller.restart();
+			
 		}
 		
 	    

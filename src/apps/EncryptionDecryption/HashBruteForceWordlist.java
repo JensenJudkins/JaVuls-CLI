@@ -6,6 +6,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
+import controller.Controller;
+
 
 public class HashBruteForceWordlist
 {
@@ -38,8 +40,9 @@ public class HashBruteForceWordlist
 		try {
 			md = MessageDigest.getInstance(typeOfHash);
 		} catch (NoSuchAlgorithmException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			System.out.println("That Algorythmn does nto exist or is not available :(");
+			Controller.restart();
+			//e1.printStackTrace();
 		}
 		try {
 			File wordlistFile = new File(path);
@@ -56,9 +59,9 @@ public class HashBruteForceWordlist
 			System.out.println(linesInWordlist + " words in wordlist");
 			
 			System.out.println("Please press enter to continue:");
-			String takeabreak = inputScanner.nextLine();
+			
 			int LinesPassed = 0;
-			while(fileReader.hasNextLine())
+			while(fileReader.hasNextLine() && !done)
 			{
 				
 				LinesPassed++;
@@ -79,6 +82,8 @@ public class HashBruteForceWordlist
 					break;
 				}
 			}
+			fileReader.close();
+			fileLineCounter.close();
 		} catch(FileNotFoundException e) {
 			System.out.println("An error occurred.");
 		      e.printStackTrace();
@@ -126,8 +131,8 @@ public class HashBruteForceWordlist
 						System.out.println("Argument "+ (args[hashedInput]) + " is blank, skipping");
 						hashedInput++;
 					}
-					int numberOfArgs = args.length;
-					int startingNumForQuery = numberOfArgs - 3;
+					//int numberOfArgs = args.length;
+					//int startingNumForQuery = numberOfArgs - 3;
 					
 		
 		
