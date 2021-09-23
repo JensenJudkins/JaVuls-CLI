@@ -5,6 +5,9 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import controller.Controller;
+
 import java.lang.Integer;
 /**
  * @author Crunchify.com Problem: Sometimes InetAddress.isReachable() gives
@@ -50,8 +53,9 @@ DEFAULTS ARE AS LISTED
 			System.out.println("Checking if " + host + " is reachable via InetAddress on port " + port);
 			System.out.println("Sever IP Address: " + InetAddress.getByName(host));
 		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
+			System.out.println("The Server was unreachable :( restarting JaVuls-CLI: ");
 			e1.printStackTrace();
+			Controller.restart();
 		}
 			
 		for(int x = 1; x<pings+1; x++)

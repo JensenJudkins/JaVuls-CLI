@@ -1,8 +1,8 @@
 package testApplications;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
+//import java.util.Arrays;
+//import java.util.List;
+//import java.util.Properties;
 
 //This class shows the properties of the java virtual machine
 

@@ -4,7 +4,7 @@ import java.io.*;
 import java.awt.GraphicsEnvironment;
 import java.net.URISyntaxException;
 
-import testApplications.WindowsCommandLineIPandPing;
+//import testApplications.WindowsCommandLineIPandPing;
 public class OpenCommandPrompt{
     public static void main (String [] args) throws IOException, InterruptedException, URISyntaxException{
         Console console = System.console();

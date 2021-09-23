@@ -11,7 +11,7 @@ import controller.Controller;
 
 public class PingURL {
 
-	public static String PingURL(String url) throws UnknownHostException, MalformedURLException
+	public static String pingURL(String url) throws UnknownHostException, MalformedURLException
 	{
 	//String url = "http://judkinscustomtaxidermy.com";
     

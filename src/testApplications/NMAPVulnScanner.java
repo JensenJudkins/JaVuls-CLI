@@ -3,9 +3,9 @@ package testApplications;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import apps.Enumeration.LocalIPLookupHost;
+//import apps.Enumeration.LocalIPLookupHost;
 import controller.Controller;
-import testApplications.ShowProperties;
+//import testApplications.ShowProperties;
 
 public class NMAPVulnScanner {
     public static void main(String args[]) {

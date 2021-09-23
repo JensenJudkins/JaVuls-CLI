@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 
 import apps.Enumeration.LocalIPLookupHost;
 import controller.Controller;
-import testApplications.ShowProperties;
+//import testApplications.ShowProperties;
 
 public class NMAPDeviceDiscovery {
     public static void main(String args[]) {

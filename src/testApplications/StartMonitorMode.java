@@ -34,6 +34,7 @@ public class StartMonitorMode {
         System.out.println("Please input the interface to set to monitor mode");
         //String input = inputScanner.nextLine();
         interfaceToChange = inputScanner.nextLine();
+        inputScanner.close();
       }
    String[] cmd = { "sh", pathToScript, interfaceToChange};
    p = Runtime.getRuntime().exec(cmd); 
@@ -53,6 +54,7 @@ public class StartMonitorMode {
    e.printStackTrace();
    Controller.restart();
   }
+  
   Controller.restart();
  }
 }

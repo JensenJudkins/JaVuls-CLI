@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import apps.Enumeration.LocalIPLookupHost;
-import testApplications.ShowProperties;
+//import testApplications.ShowProperties;
 
 public class LinuxArpScan {
 	

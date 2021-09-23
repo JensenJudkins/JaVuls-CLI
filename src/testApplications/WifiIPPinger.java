@@ -1,5 +1,6 @@
 package testApplications;
 
+/*
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -10,7 +11,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+*/
 public class WifiIPPinger {
 	
 /*	static String getMYIP()

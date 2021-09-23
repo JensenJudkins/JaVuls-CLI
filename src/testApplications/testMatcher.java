@@ -14,7 +14,7 @@ public class testMatcher {
 	{
 	    String line;
 	    int lines = 0;
-	    int matches = 0;
+	    //int matches = 0;
 		String filename = "ServicesAndPorts.txt";
 		System.out.print  ("Find " + findMe);
 	    System.out.println(" in "  + filename);
@@ -32,10 +32,10 @@ public class testMatcher {
 	      if (isContain(line, findMe)) 
 	      {
 	        System.out.println ("" + lines + ": " + line);
-	        matches++;
+	        //matches++;
 	      }
 	    }
-	    
+	    scan.close();
 	   // System.out.println( lines + " lines, " + matches + " matches" );
 	  }
 	
