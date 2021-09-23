@@ -14,7 +14,7 @@ import controller.Controller;
 public class ReverseShellBroken {
  
  // NOTE: Change seed to help you change the file hash.
- private String seed              = "3301Kira";
+ //private String seed              = "3301Kira";
  private InetSocketAddress addr   = null;
  private String            os     = null;
  private String            shell  = null;
