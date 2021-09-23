@@ -1,8 +1,8 @@
 package archive;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+//import java.util.Arrays;
+//import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -33,6 +33,7 @@ public class TcpListener {
 */
 		
 		runMe(9999);
+		printUsage();
 		
 	}
 

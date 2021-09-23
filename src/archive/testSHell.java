@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import apps.ReverseShell.originals.ReverseShellBroken;
+import controller.Controller;
 
 
 
@@ -19,8 +20,8 @@ public class testSHell {
 		try {
 			controller.Controller.restart();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Controller.restart();
 		}
 	}
 

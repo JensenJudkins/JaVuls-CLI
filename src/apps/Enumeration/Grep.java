@@ -28,7 +28,7 @@ public class Grep
  public static String findMe(String find) throws FileNotFoundException {
     String line;
     int lines = 0;
-    int matches = 0;
+    //int matches = 0;
 
     // Check the command line, prompt user if needed   
     
@@ -56,7 +56,7 @@ public class Grep
       {
         System.out.println ("" + lines + ": " + line);
         matchString = "" + lines + ": " + line;
-        matches++;
+        //matches++;
       }
     }
     scan.close();

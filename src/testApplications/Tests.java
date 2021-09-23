@@ -1,5 +1,5 @@
 package testApplications;
-
+/*
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import testApplications.*;
-
+*/
 
 public class Tests 
 {
@@ -49,16 +49,16 @@ public class Tests
 			
 			// A bunch of catch clauses for all the possible errors
 			} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				// 
 				e.printStackTrace();
 			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
+				// 
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				// 
 				e.printStackTrace();
 			}
 		*/

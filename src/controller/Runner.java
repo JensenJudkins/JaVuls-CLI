@@ -7,8 +7,8 @@ public class Runner {
 	try {
 		app.start();
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
+		System.out.println("Bro the program just don't wanna start. leave me alone");
 	}
 	}
 

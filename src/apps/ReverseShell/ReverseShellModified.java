@@ -148,7 +148,7 @@ static Scanner inputScanner = new Scanner(System.in);
    
          System.out.print("Input port: ");
          String portNum = inputScanner.nextLine();
-         int x = catchIntException(portNum);
+         //int x = catchIntException(portNum);
          System.out.print("Input ip: ");
          String ip = inputScanner.nextLine();
          boolean error = false;

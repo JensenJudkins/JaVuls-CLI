@@ -16,7 +16,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import java.io.IOException;
-import apps.*;
+//import apps.*;
 import apps.EncryptionDecryption.EncryptDecryptFilesAES;
 import apps.EncryptionDecryption.HashBruteForce;
 import apps.EncryptionDecryption.HashBruteForceWordlist;
@@ -25,10 +25,10 @@ import apps.Enumeration.PortScanner;
 import apps.Enumeration.PublicIPLookupHost;
 import apps.ReverseShell.BindShellModified;
 import apps.ReverseShell.ReverseShellModified;
-import apps.ReverseShell.originals.BindShellBroken;
-import apps.ReverseShell.originals.ReverseShellBroken;
-import archive.LinuxReverseShell;
-import archive.WindowsReverseShell;
+//import apps.ReverseShell.originals.BindShellBroken;
+//import apps.ReverseShell.originals.ReverseShellBroken;
+//import archive.LinuxReverseShell;
+//import archive.WindowsReverseShell;
 
 import java.lang.Integer;
 import java.net.UnknownHostException;

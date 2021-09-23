@@ -1,7 +1,7 @@
 package textFiles;
 
 //Not sure where I originally got this from. 
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;

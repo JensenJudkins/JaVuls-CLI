@@ -158,7 +158,7 @@ public class BindShellModified {
 
          System.out.print("Input port: ");
          String port = inputScanner.nextLine();
-         int x = catchIntException(port);
+         //int x = catchIntException(port);
          boolean error = false;
         int portNum = -1;
         
