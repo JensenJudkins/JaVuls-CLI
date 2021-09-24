@@ -81,6 +81,30 @@ public class Controller {
 	public static void runApplication(){
 		
 		String input = inputScanner.nextLine();
+
+		//PRINTING IN CATEGORYS
+
+		if(input.equals("enumeration") || input.equals("enu"))
+		{
+			MainMenu.printEnumerationTools();
+		}
+		if(input.equals("encryption") || input.equals("enc"))
+		{
+			MainMenu.printEncryptionTools();
+		}
+		if(input.equals("offensive") || input.equals("off"))
+		{
+			MainMenu.printOffensiveTools();
+		}
+		if(input.equals("listening") || input.equals("lis"))
+		{
+			MainMenu.printListeningTools();
+		}
+
+
+		//NOW RUN APPS
+
+
 		int x = catchIntException(input);
 		
 		
