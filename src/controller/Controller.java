@@ -1,6 +1,7 @@
 package controller;
 
 import navigation.*;
+import testApplications.Airodump;
 import testApplications.DDoS;
 import testApplications.NMAPDeviceDiscovery;
 import testApplications.NMAPVulnScanner;
@@ -201,11 +202,18 @@ public class Controller {
 		{
 			StartNetworkHostDiscovery();
 		}
+		if(x == 16)
+		{
+			StartAirodump();
+		}
 		
 	}
 	
 	
 	//APPLICATION STARTER SECTION
+	public static void StartAirodump(){
+		Airodump.wifiAirodump();
+	}
 	public static void StartDDoS(){
 		System.out.println("Please input the victim site (ex. http://google.com): ");
 		String victim = inputScanner.nextLine();
@@ -421,18 +429,10 @@ public class Controller {
 		else {
 			httpServerThread.start();
 		}
-		
-		
-
 			httpServerRunning();
-			
-		
-		
-		
-		
-		
-		
 	}
+
+	
 	public static void HashBruteForce() {
 		System.out.println("Will you be using a wordlist? (y)");
 		String wordlistornah = inputScanner.nextLine();
