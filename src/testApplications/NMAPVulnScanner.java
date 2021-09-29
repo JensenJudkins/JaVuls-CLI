@@ -53,7 +53,7 @@ public class NMAPVulnScanner {
             //RUN SCRIPT
             System.out.println("Running actual script");
             try {
-				p = Runtime.getRuntime().exec("nmap -sV --script vulners 127.0.0.1");
+				p = Runtime.getRuntime().exec("nmap -Pn -sV --script vulners 127.0.0.1");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
@@ -119,7 +119,7 @@ public class NMAPVulnScanner {
             //RUN SCRIPT
             System.out.println("Running actual script");
             try {
-				p = Runtime.getRuntime().exec("nmap -sV --script vulners " + IP);
+				p = Runtime.getRuntime().exec("nmap -Pn -sV --script vulners " + IP);
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
