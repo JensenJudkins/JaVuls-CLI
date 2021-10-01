@@ -37,7 +37,7 @@ public class PingURL {
             System.out.println("" + code);
             
             
-            String sendMe = url + " has an IP address of " + ip + "\n" +"Connection properties: " + "\n" + connectionProperties + "\n" + "Code Returned:"+ code;
+            //String sendMe = url + " has an IP address of " + ip + "\n" +"Connection properties: " + "\n" + connectionProperties + "\n" + "Code Returned:"+ code;
             //System.out.println( sendMe);
             // You can determine on HTTP return code received. 200 is success.
     
