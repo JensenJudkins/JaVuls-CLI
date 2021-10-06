@@ -58,7 +58,7 @@
      <p><code>host</code> is the remote hostname and is mandatory.
     */
   
-    public static void main( String[] args ){
+    public static void main(String[] args ){
   
       final String errortext = "Usage: Traceroute -p protocol -l localhost -d -f first_ttl host";
       
