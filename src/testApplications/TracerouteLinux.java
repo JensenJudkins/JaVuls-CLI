@@ -2,10 +2,10 @@ package testApplications;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.UnknownHostException;
+
 import controller.Controller;
 //import testApplications.ShowProperties;
-import testApplications.ShowProperties;
+
 
 
 public class TracerouteLinux {
