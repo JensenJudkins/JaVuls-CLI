@@ -33,7 +33,7 @@ public class PingURL {
             //System.out.println(connection.getURL());
             //System.out.println(connection.getRequestProperties());
             System.out.println(connection.getConnectTimeout());
-            String connectionProperties = connection.getRequestProperties().toString();
+            //String connectionProperties = connection.getRequestProperties().toString();
             System.out.println("" + code);
             
             
