@@ -58,6 +58,7 @@ public class NMAPDeviceDiscovery {
                     e1.printStackTrace();
                     Controller.restart();
                 }
+                Controller.restart();
 
 		}
     }
