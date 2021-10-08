@@ -21,7 +21,7 @@ public class NMAPVulnScanner {
 			String s;
 			Process p;
 			try {
-				p = Runtime.getRuntime().exec("sudo apt-get install nmap -y");
+				p = Runtime.getRuntime().exec("apt install nmap -y");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
@@ -31,7 +31,7 @@ public class NMAPVulnScanner {
 				p.destroy();
 			} catch (Exception e) {}
 			try {
-				p = Runtime.getRuntime().exec("sudo apt-get install git -y");
+				p = Runtime.getRuntime().exec("apt install git -y");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
@@ -68,7 +68,7 @@ public class NMAPVulnScanner {
 
 
             try {
-				p = Runtime.getRuntime().exec("sudo rm -rf nmap-vulners/");
+				p = Runtime.getRuntime().exec("rm -rf nmap-vulners/");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
@@ -105,7 +105,7 @@ public class NMAPVulnScanner {
 			String s;
 			Process p;
 			try {
-				p = Runtime.getRuntime().exec("sudo apt-get install nmap git");
+				p = Runtime.getRuntime().exec("apt install nmap git");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)

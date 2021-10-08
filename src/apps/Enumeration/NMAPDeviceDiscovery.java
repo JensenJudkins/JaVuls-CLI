@@ -21,7 +21,7 @@ public class NMAPDeviceDiscovery {
 			String s;
 			Process p;
 			try {
-				p = Runtime.getRuntime().exec("sudo apt-get install nmap");
+				p = Runtime.getRuntime().exec("apt install nmap");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
@@ -85,7 +85,7 @@ public class NMAPDeviceDiscovery {
 			String s;
 			Process p;
 			try {
-				p = Runtime.getRuntime().exec("sudo apt-get install nmap");
+				p = Runtime.getRuntime().exec("apt install nmap");
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
