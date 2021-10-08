@@ -4,6 +4,7 @@ import navigation.*;
 import testApplications.Airodump;
 import testApplications.DDoS;
 import testApplications.StartMonitorMode;
+import testApplications.TracerouteLinux;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,11 +207,20 @@ public class Controller {
 		{
 			StartAirodump();
 		}
+		if(x == 17)
+		{
+			StartTracerout();
+		}
 		
 	}
 	
 	
 	//APPLICATION STARTER SECTION
+	public static void StartTracerout(){
+		System.out.println("Please input the hostname or IP to tracerout to: ");
+		String IP = inputScanner.nextLine();
+		TracerouteLinux.tracerouteInput(IP);
+	}
 	public static void StartAirodump(){
 		Airodump.wifiAirodump();
 	}
