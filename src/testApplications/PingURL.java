@@ -13,7 +13,7 @@ public class PingURL {
 
     public static void main(String args[])
     {
-        String url = "http://judkinscustomtaxidermy.com";
+        String url = "http://google.com";
     
     
 		HttpURLConnection connection = null;
@@ -76,7 +76,7 @@ public class PingURL {
 
 	public static String pingURL(String url) throws UnknownHostException, MalformedURLException
 	{
-	//String url = "http://judkinscustomtaxidermy.com";
+	//String url = "http://google.com";
     
     
 		HttpURLConnection connection = null;
