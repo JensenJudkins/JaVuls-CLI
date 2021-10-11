@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.UnknownHostException;
 
+import backend.ShowProperties;
 import controller.Controller;
-//import testApplications.ShowProperties;
-import testApplications.ShowProperties;
 
 public class NMAPDeviceDiscovery {
     public static void main(String args[]) {
