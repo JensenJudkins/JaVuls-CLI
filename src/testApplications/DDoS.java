@@ -6,6 +6,8 @@ import java.net.URLEncoder;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import controller.Controller;
+
 public class DDoS { 
     public static String host = "google.com";
     public static void main(String... args) throws Exception {
@@ -25,6 +27,7 @@ public class DDoS {
                 thread.start();
             }
         }
+        Controller.restart();
     }
    
      
