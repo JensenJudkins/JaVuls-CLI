@@ -24,7 +24,7 @@ public class ArpScan {
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
@@ -34,11 +34,11 @@ public class ArpScan {
 				Scanner inputScanner = new Scanner(System.in);
 				String Interface = inputScanner.nextLine();
 				inputScanner.close();
-				p = Runtime.getRuntime().exec("sudo arp-scan --localnet --interface="+ Interface );
+				p = Runtime.getRuntime().exec("sudo arp-scan -v --localnet --interface="+ Interface );
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
@@ -63,7 +63,7 @@ public class ArpScan {
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
@@ -71,13 +71,13 @@ public class ArpScan {
 			try {
 				System.out.println("Please input the interface you wish to arp scan: ");
 				Scanner inputScanner = new Scanner(System.in);
-				inputScanner.close();
 				String Interface = inputScanner.nextLine();
-				p = Runtime.getRuntime().exec("sudo arp-scan --localnet --interface="+ Interface );
+				inputScanner.close();
+				p = Runtime.getRuntime().exec("sudo arp-scan -v --localnet --interface="+ Interface );
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
 				while ((s = br.readLine()) != null)
-					System.out.println("line: " + s);
+					System.out.println(s);
 				p.waitFor();
 				System.out.println ("exit: " + p.exitValue());
 				p.destroy();
