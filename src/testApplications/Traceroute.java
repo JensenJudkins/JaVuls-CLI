@@ -1,6 +1,7 @@
 package testApplications;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import controller.Controller;
@@ -8,12 +9,17 @@ import controller.Controller;
 
 
 
-public class TracerouteLinux {
+public class Traceroute {
 
     public static void main(String args[]) {
 		if(ShowProperties.getOperatingSystem().equals("Windows 10"))
 		{
-			System.out.println("This is a windows machine");
+			try {
+                traceroutWindowsTest();
+            } catch (IOException e) {
+                Controller.restart();
+                e.printStackTrace();
+            }
 		}
 		else
 		{
@@ -61,6 +67,85 @@ public class TracerouteLinux {
 
 
 
+    public static void traceroutWindowsTest() throws IOException{
+            String IP = "8.8.8.8";
+            Runtime rt = Runtime.getRuntime();
+            String[] commands = {"system.exe", "tracert " + IP};
+            Process proc;
+            
+            proc = rt.exec(commands);
+            
+
+            BufferedReader stdInput = new BufferedReader(new 
+           InputStreamReader(proc.getInputStream()));
+
+            BufferedReader stdError = new BufferedReader(new 
+            InputStreamReader(proc.getErrorStream()));
+
+        // Read the output from the command
+            System.out.println("Here is the standard output of the command:\n");
+            String s = null;
+            try {
+                while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+                }
+            } catch (IOException e) {
+                Controller.restart();
+                e.printStackTrace();
+            }  
+
+        // Read any errors from the attempted command
+            System.out.println("Here is the standard error of the command (if any):\n");
+            try {
+                while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+                }
+            } catch (IOException e) {
+                Controller.restart();
+                e.printStackTrace();
+            }
+    }
+
+
+
+    public static void traceroutWindows(String IP) throws IOException{
+        //String IP = "8.8.8.8";
+        Runtime rt = Runtime.getRuntime();
+        String[] commands = {"system.exe", "tracert " + IP};
+        Process proc;
+        
+        proc = rt.exec(commands);
+        
+
+        BufferedReader stdInput = new BufferedReader(new 
+       InputStreamReader(proc.getInputStream()));
+
+        BufferedReader stdError = new BufferedReader(new 
+        InputStreamReader(proc.getErrorStream()));
+
+    // Read the output from the command
+        System.out.println("Here is the standard output of the command:\n");
+        String s = null;
+        try {
+            while ((s = stdInput.readLine()) != null) {
+            System.out.println(s);
+            }
+        } catch (IOException e) {
+            Controller.restart();
+            e.printStackTrace();
+        }  
+
+    // Read any errors from the attempted command
+        System.out.println("Here is the standard error of the command (if any):\n");
+        try {
+            while ((s = stdError.readLine()) != null) {
+            System.out.println(s);
+            }
+        } catch (IOException e) {
+            Controller.restart();
+            e.printStackTrace();
+        }
+}
 
 
 
@@ -69,14 +154,8 @@ public class TracerouteLinux {
 
 
 
-
-	public static void tracerouteInput(String input) {
-		if(ShowProperties.getOperatingSystem().equals("Windows 10"))
-		{
-			System.out.println("This is a windows machine");
-		}
-		else
-		{
+	public static void tracerouteLinux(String input) {
+		
             //INSTALL DEPENDENCIES
             System.out.println("INSTALLING ALL DEPENDANCIES");
 			String s;
@@ -122,4 +201,4 @@ public class TracerouteLinux {
         }
     }
     
-}
+

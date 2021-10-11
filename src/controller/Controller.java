@@ -3,8 +3,9 @@ package controller;
 import navigation.*;
 import testApplications.Airodump;
 import testApplications.DDoS;
+import testApplications.ShowProperties;
 import testApplications.StartMonitorMode;
-import testApplications.TracerouteLinux;
+import testApplications.Traceroute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -219,7 +220,24 @@ public class Controller {
 	public static void StartTracerout(){
 		System.out.println("Please input the hostname or IP to tracerout to: ");
 		String IP = inputScanner.nextLine();
-		TracerouteLinux.tracerouteInput(IP);
+
+		if(ShowProperties.getOperatingSystem().equals("Windows 10"))
+		{
+			try {
+				Traceroute.traceroutWindows(IP);
+			} catch (IOException e) {
+				System.out.println("busted when trying to tracerout on windows, restratong: ");
+				e.printStackTrace();
+				Controller.restart();
+			}
+		}
+		else
+		{
+			Traceroute.tracerouteLinux(IP);
+			Controller.restart();
+		}
+
+		
 	}
 	public static void StartAirodump(){
 		Airodump.wifiAirodump();
