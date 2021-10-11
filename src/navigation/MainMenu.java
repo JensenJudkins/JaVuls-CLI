@@ -34,7 +34,7 @@ public class MainMenu {
     	System.out.println("14) DDoS Attack");
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
-		System.out.println("17) Run Tracerout (SUDO REQUIREMENT, Linux Only atm)");
+		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
     	
     	
     	
@@ -64,7 +64,7 @@ public class MainMenu {
     	System.out.println("14) DDoS Attack");
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
-		System.out.println("17) Run Tracerout (SUDO REQUIREMENT, Linux Only atm)");
+		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
     	
     	
     	
