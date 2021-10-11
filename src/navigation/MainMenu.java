@@ -21,7 +21,7 @@ public class MainMenu {
     	System.out.println("1) List (your) Public IP");
     	System.out.println("2) List (your) Local IP");
     	System.out.println("3) Port Scanner");
-		System.out.println("4) NMAP Vulners Scan (requires root)");
+		System.out.println("4) NMAP Vulners Scan (SUDO REQUIREMENT, Linux Only)");
     	System.out.println("5) Encrypt file with AES");
     	System.out.println("6) Decrypt AES file");
     	System.out.println("7) Hash Brute Force Cracker");
@@ -35,6 +35,7 @@ public class MainMenu {
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
+		System.out.println("18) ARP Network Scan (SUDO REQUIREMENT, Linux Only");
     	
     	
     	
@@ -64,7 +65,8 @@ public class MainMenu {
     	System.out.println("14) DDoS Attack");
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
-		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
+		System.out.println("17) Run Tracerout (SUDO REQUIREMENT, Linux Only)");
+		System.out.println("18) ARP Network Scan (SUDO REQUIREMENT, Linux Only");
     	
     	
     	
@@ -88,6 +90,7 @@ public class MainMenu {
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
+		System.out.println("18) ARP Network Scan (SUDO REQUIREMENT, Linux Only");
 
 	}
 

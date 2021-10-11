@@ -21,6 +21,7 @@ import java.io.IOException;
 import apps.EncryptionDecryption.EncryptDecryptFilesAES;
 import apps.EncryptionDecryption.HashBruteForce;
 import apps.EncryptionDecryption.HashBruteForceWordlist;
+import apps.Enumeration.ArpScan;
 import apps.Enumeration.LocalIPLookupHost;
 import apps.Enumeration.NMAPDeviceDiscovery;
 import apps.Enumeration.NMAPVulnScanner;
@@ -212,11 +213,19 @@ public class Controller {
 		{
 			StartTracerout();
 		}
+		if(x == 18)
+		{
+			StartArpScan();
+		}
 		
 	}
 	
 	
 	//APPLICATION STARTER SECTION
+	public static void StartArpScan(){
+		ArpScan.arpScanLinux();
+	}
+
 	public static void StartTracerout(){
 		System.out.println("Please input the hostname or IP to tracerout to: ");
 		String IP = inputScanner.nextLine();
