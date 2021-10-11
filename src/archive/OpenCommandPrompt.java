@@ -1,8 +1,10 @@
-package testApplications;
+package archive;
 
 import java.io.*;
 import java.awt.GraphicsEnvironment;
 import java.net.URISyntaxException;
+
+import testApplications.WindowsCommandLineIPandPing;
 
 //import testApplications.WindowsCommandLineIPandPing;
 public class OpenCommandPrompt{

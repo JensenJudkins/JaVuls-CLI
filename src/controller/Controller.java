@@ -1,10 +1,9 @@
 package controller;
 
 import navigation.*;
-import testApplications.Airodump;
 import testApplications.DDoS;
+import testApplications.PingURL;
 import testApplications.StartMonitorMode;
-import testApplications.Traceroute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +19,14 @@ import java.io.IOException;
 import apps.EncryptionDecryption.EncryptDecryptFilesAES;
 import apps.EncryptionDecryption.HashBruteForce;
 import apps.EncryptionDecryption.HashBruteForceWordlist;
+import apps.Enumeration.Airodump;
 import apps.Enumeration.ArpScan;
 import apps.Enumeration.LocalIPLookupHost;
 import apps.Enumeration.NMAPDeviceDiscovery;
 import apps.Enumeration.NMAPVulnScanner;
 import apps.Enumeration.PortScanner;
 import apps.Enumeration.PublicIPLookupHost;
+import apps.Enumeration.Traceroute;
 import apps.ReverseShell.BindShellModified;
 import apps.ReverseShell.ReverseShellModified;
 import backend.FilenameUtils;
@@ -36,6 +37,7 @@ import backend.FilenameUtils;
 import backend.ShowProperties;
 
 import java.lang.Integer;
+import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -218,11 +220,35 @@ public class Controller {
 		{
 			StartArpScan();
 		}
+		if(x == 19)
+		{
+			StartPingURL();
+		}
 		
 	}
 	
 	
 	//APPLICATION STARTER SECTION
+	public static void StartPingURL()
+	{
+		System.out.println("Please input the hostname, IP, or URL to Ping (port 80): ");
+		String URL = inputScanner.nextLine();
+		try {
+			PingURL.pingURL(URL);
+		} catch (UnknownHostException e) {
+
+			System.out.println("IOException broski :(");
+       		e.printStackTrace();
+       		Controller.restart();
+        	System.out.println("Connection has failed to " + URL + "\n" + "IOException Error");
+		} catch (MalformedURLException e) {
+			System.out.println("Malformed URL, dont work cuh :(");
+       		e.printStackTrace();
+       		Controller.restart();
+        	System.out.println("Connection has failed to " + URL + "\n" + "MalformedURLException Error");
+		}
+	}
+
 	public static void StartArpScan(){
 		ArpScan.arpScanLinux();
 	}

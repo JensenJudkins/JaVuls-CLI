@@ -1,4 +1,4 @@
-package testApplications;
+package apps.Enumeration;
 
 import java.io.BufferedReader;
 import java.io.IOException;
