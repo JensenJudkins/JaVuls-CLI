@@ -1,4 +1,4 @@
-package testApplications;
+package apps.Enumeration;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

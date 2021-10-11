@@ -1,4 +1,4 @@
-package testApplications;
+package backend;
 
 /**
  * @file HttpUtil.java
@@ -77,7 +77,7 @@ public class HttpUtil {
 	 */
     public static void main(String args[])
     {
-        String url = "http://judkinscustomtaxidermy.com";
+        String url = "www.google.com";
         try {
             get(url);
         } catch (IOException e) {
