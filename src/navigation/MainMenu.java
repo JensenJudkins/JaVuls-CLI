@@ -87,6 +87,7 @@ public class MainMenu {
 		System.out.println("13) Put Interface Into Monitor Mode (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("15) Network Host Discovery (SUDO REQUIREMENT, Linux Only)");
 		System.out.println("16) Start Airodump-ng (SUDO REQUIREMENT, Linux Only)");
+		System.out.println("17) Run Tracerout (SUDO REQUIREMENT for Linux)");
 
 	}
 
