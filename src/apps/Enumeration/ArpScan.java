@@ -33,6 +33,7 @@ public class ArpScan {
 				System.out.println("Please input the interface you wish to arp scan: ");
 				Scanner inputScanner = new Scanner(System.in);
 				String Interface = inputScanner.nextLine();
+				inputScanner.close();
 				p = Runtime.getRuntime().exec("sudo arp-scan --localnet --interface="+ Interface );
 				BufferedReader br = new BufferedReader(
 					new InputStreamReader(p.getInputStream()));
@@ -70,6 +71,7 @@ public class ArpScan {
 			try {
 				System.out.println("Please input the interface you wish to arp scan: ");
 				Scanner inputScanner = new Scanner(System.in);
+				inputScanner.close();
 				String Interface = inputScanner.nextLine();
 				p = Runtime.getRuntime().exec("sudo arp-scan --localnet --interface="+ Interface );
 				BufferedReader br = new BufferedReader(
