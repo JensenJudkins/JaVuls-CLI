@@ -99,8 +99,10 @@ public class PingURL {
         
         
         String sendMe = url + " has an IP address of " + ip + "\n" +"Connection properties: " + "\n" + connectionProperties + "\n" + "Code Returned:"+ code;
+        Controller.restart();
         return sendMe;
         // You can determine on HTTP return code received. 200 is success.
+        
 
     } catch (MalformedURLException e) {
 
@@ -123,12 +125,11 @@ public class PingURL {
         if (connection != null) {
 
             connection.disconnect();
+            Controller.restart();
 
         }
 
     }
-    
-    
 	}
 
 	
