@@ -234,7 +234,7 @@ public class Controller {
 		System.out.println("Please input the hostname, IP, or URL to Ping (port 80): ");
 		String URL = inputScanner.nextLine();
 		try {
-			PingURL.pingURL(URL);
+			System.out.println(PingURL.pingURL(URL));
 		} catch (UnknownHostException e) {
 
 			System.out.println("IOException broski :(");
