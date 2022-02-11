@@ -235,6 +235,7 @@ public class Controller {
 		String URL = inputScanner.nextLine();
 		try {
 			System.out.println(PingURL.pingURL(URL));
+			restart();
 		} catch (UnknownHostException e) {
 
 			System.out.println("IOException broski :(");

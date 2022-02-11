@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 
-import controller.Controller;
+import controller.*;
 
 public class PingURL {
 
@@ -78,14 +78,14 @@ public class PingURL {
 	{
 	//String url = "http://google.com";
     
-    
+        String sendMe;
 		HttpURLConnection connection = null;
 
     try {
 
     	InetAddress address = InetAddress.getByName(new URL(url).getHost());
         String ip = address.getHostAddress();
-        System.out.println(ip);
+        //System.out.println(ip);
     	
     	
         URL u = new URL(url);
@@ -95,12 +95,12 @@ public class PingURL {
         System.out.println(connection.getURL());
         System.out.println(connection.getRequestProperties());
         String connectionProperties = connection.getRequestProperties().toString();
-        System.out.println("" + code);
+        System.out.println("response code: " + code);
         
         
-        String sendMe = url + " has an IP address of " + ip + "\n" +"Connection properties: " + "\n" + connectionProperties + "\n" + "Code Returned:"+ code;
-        Controller.restart();
-        return sendMe;
+        sendMe = url + " has an IP address of " + ip + "\n" +"Connection properties: " + "\n" + connectionProperties + "\n" + "Code Returned:"+ code;
+        //Controller.restart();
+        //return sendMe;
         // You can determine on HTTP return code received. 200 is success.
         
 
@@ -109,27 +109,31 @@ public class PingURL {
         System.out.println("Malformed URL, dont work cuh :(");
     	
        e.printStackTrace();
-       Controller.restart();
-        return "Connection has failed to " + url + "\n" + "MalformedURLException Error";
+       //Controller.restart();
+       sendMe = "Connection has failed to " + url + "\n" + "MalformedURLException Error";
+    //return sendMe;
         
     } catch (IOException e) {
 
         System.out.println("IOException broski :(");
 
        e.printStackTrace();
-       Controller.restart();
-        return "Connection has failed to " + url + "\n" + "IOException Error";
+       //Controller.restart();
+       sendMe = "Connection has failed to " + url + "\n" + "IOException Error";
+        //return "Connection has failed to " + url + "\n" + "IOException Error";
 
     } finally {
-
+        
         if (connection != null) {
 
             connection.disconnect();
-            Controller.restart();
+            
+            //Controller.restart();
 
         }
-
+    
     }
+    return sendMe;
 	}
 
 	
