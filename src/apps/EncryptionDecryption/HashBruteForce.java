@@ -223,6 +223,8 @@ public class HashBruteForce
 					if(args[startingNumForQueryOfSettings+6].equals("y"))
 						{
 						System.out.println("Processing Time: " + ((end - start)/1000000000)+" Seconds, " + ((end - start)/1000000)+" Milliseconds (10^-3 thousandth), " + ((end - start)/1000)+" Microseconds (10^-6 millienth), " + ((end - start)/1)+" Nanoseconds (10^-9 billienth)");
+						System.out.println("Hashing algorythmn: "+ args[startingNumForQueryOfSettings+4]);
+						System.out.println("Answer: " + answer);
 						}
 					else {
 						System.out.println("Hashing algorythmn: "+ args[startingNumForQueryOfSettings+4]);
